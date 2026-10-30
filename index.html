@@ -471,23 +471,43 @@ html{overflow-y:scroll;scrollbar-gutter:stable}
 .ea button[data-a=del]{color:#C0392B;border-color:rgba(192,57,43,.45)}
 .ea button[data-a=del][data-s]{background:#C0392B;color:#fff;border-color:#C0392B}
 .ea button[data-a=dup][data-s]{background:#2E8B6A;color:#fff;border-color:#2E8B6A}
-.sl{position:relative;overflow:hidden;overflow:clip;border-radius:0;aspect-ratio:8/9;max-height:min(1640px,164vh);display:flex;flex-direction:column;justify-content:flex-end;width:var(--vw,100vw);box-shadow:var(--sh);background:rgba(0,0,0,.06);margin:0 0 30px calc(50% - var(--vw,100vw)/2);touch-action:pan-y;user-select:none}
-@media(max-width:640px){.sl{aspect-ratio:1/2}}
-.slt{position:absolute;inset:0;display:flex;transition:transform .7s cubic-bezier(.65,0,.35,1)}
-.sli{flex:0 0 100%;position:relative;display:flex;flex-direction:column;justify-content:flex-end;height:100%;color:#fff;text-decoration:none;min-width:0}
-.sli img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:0% 50%;display:block;pointer-events:none}
-.sli.on img{animation:slpan var(--pd,9s) ease-in-out forwards}
-.sli:nth-child(even).on img{animation-name:slpanr}
-@keyframes slpan{from{object-position:0% 50%}to{object-position:100% 50%}}
-@keyframes slpanr{from{object-position:100% 50%}to{object-position:0% 50%}}
-.slc{position:sticky;bottom:0;padding:56px max(26px,calc((var(--vw,100vw) - 1060px)/2)) 42px;background:linear-gradient(transparent,rgba(0,0,0,.6));display:flex;flex-direction:column;gap:4px;pointer-events:none}
+.sl{position:relative;overflow:hidden;overflow:clip;clip-path:inset(0);border-radius:0;aspect-ratio:16/9;max-height:min(820px,82vh);display:flex;flex-direction:column;justify-content:flex-end;width:var(--vw,100vw);box-shadow:var(--sh);background:rgba(0,0,0,.06);margin:0 0 30px calc(50% - var(--vw,100vw)/2);touch-action:pan-y;user-select:none}
+@media(max-width:640px){.sl{aspect-ratio:1/1}}
+.slt{position:absolute;inset:0;overflow:hidden}
+.sli{position:absolute;inset:0;visibility:hidden;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;text-decoration:none;min-width:0}
+.sli.on{visibility:visible}
+.sli.in{z-index:2}
+.sli.in .slm{animation:slin .8s cubic-bezier(.4,0,.2,1) both}
+.slm{position:absolute;inset:0;overflow:hidden}
+.sli.in.rv .slm{animation-name:slinr}
+.sli.out .slm{animation:slout .8s cubic-bezier(.4,0,.2,1) both}
+.sli.out.rv .slm{animation-name:sloutr}
+@keyframes slin{from{opacity:0;transform:translateX(30%)}to{opacity:1;transform:none}}
+@keyframes slinr{from{opacity:0;transform:translateX(-30%)}to{opacity:1;transform:none}}
+@keyframes slout{from{opacity:1;transform:none}to{opacity:0;transform:translateX(-30%)}}
+@keyframes sloutr{from{opacity:1;transform:none}to{opacity:0;transform:translateX(30%)}}
+.sli img{position:absolute;left:calc((1 - var(--z,1.2))*50%);top:calc((1 - var(--z,1.2))*50%);width:calc(var(--z,1.2)*100%);height:calc(var(--z,1.2)*100%);object-fit:cover;display:block;pointer-events:none}
+.sli.on img{animation:slpan var(--pd,9s) linear forwards}
+.sli.r.on img{animation-name:slpanr}
+@keyframes slpan{from{transform:translateX(calc(var(--d,0px)*-1))}to{transform:translateX(var(--d,0px))}}
+@keyframes slpanr{from{transform:translateX(var(--d,0px))}to{transform:translateX(calc(var(--d,0px)*-1))}}
+.slb{position:sticky;bottom:0;height:0;z-index:4;flex:none;pointer-events:none}
+.slb::before{content:'';position:absolute;left:0;right:0;bottom:-23px;height:243px;background:linear-gradient(transparent,rgba(0,0,0,.6))}
+.slw{position:absolute;left:0;right:0;bottom:0;padding:0 max(26px,calc((var(--vw,100vw) - 1060px)/2)) 42px;display:grid}
+.slc{grid-area:1/1;align-self:end;opacity:0;transition:opacity .8s ease;pointer-events:none}
+.slc.on{opacity:1}
+.slc a.slx{pointer-events:none}
+.slc.on a.slx{pointer-events:auto}
+.slx{display:flex;flex-direction:column;gap:4px;align-self:flex-start;color:inherit;text-decoration:none;color:#fff}
+
+a.slx:hover b{text-decoration:underline}
 .slc b{font:700 clamp(18px,3vw,30px)/1.25 Poppins,'Noto Sans JP',sans-serif;text-shadow:0 2px 10px rgba(0,0,0,.4)}
 .slc span{font-size:13px;opacity:.92;text-shadow:0 1px 6px rgba(0,0,0,.4)}
-.sla{position:sticky;bottom:45vh;height:0;z-index:3;flex:none}
+.sla{position:absolute;left:0;right:0;top:50%;height:0;z-index:5}
 .sln{position:absolute;top:0;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:0;background:rgba(255,255,255,.78);color:#222;font:400 26px/1 sans-serif;cursor:pointer;display:grid;place-items:center;padding:0 0 3px;opacity:0;transition:opacity .2s}
 .sl:hover .sln,.sln:focus-visible{opacity:1}
 .sln.p{left:14px}.sln.n{right:14px}
-.sld{position:sticky;bottom:14px;z-index:3;flex:none;height:9px;margin-top:-23px;display:flex;justify-content:center;gap:8px}
+.sld{position:sticky;bottom:14px;z-index:5;flex:none;height:9px;margin:0 0 14px;display:flex;justify-content:center;gap:8px}
 .sld button{width:9px;height:9px;border-radius:99px;border:0;padding:0;background:rgba(255,255,255,.55);cursor:pointer;transition:width .3s,background .3s}
 .sld button[aria-current=true]{width:26px;background:#fff}
 @media(hover:none){.sln{opacity:.85}}
@@ -534,7 +554,7 @@ a.jl:not(.ul){color:var(--pink-d);font-weight:600;word-break:break-all}
   </section>
 
   <section class="pg" id="p-top">
-    <div id="tpS"><div class="sl" style="--pd:7.5s" role="region" aria-roledescription="carousel" aria-label="ピックアップ"><div class="slt" style="transform: translateX(0%);"><a class="sli on" href="https://cluster.mu/w/ca12d4fa-1133-47df-bc72-afb032ea4158" target="_blank" rel="noopener noreferrer" draggable="false"><img src="https://drive.google.com/thumbnail?id=1AyukFSe-IRbx5rk_TT1J6Dn19FWGaqc6&amp;sz=w2400" data-gd="1AyukFSe-IRbx5rk_TT1J6Dn19FWGaqc6" data-w="2400" alt="" draggable="false"><span class="slc"><b>新ワールド "Liminal Spaces" The Frontrooms 公開</b><span>clusterにて新ワールドを公開しました。</span></span></a><a class="sli" href="https://cluster.mu/w/4f635c90-71f0-4672-ba52-f270d6dedf82" target="_blank" rel="noopener noreferrer" draggable="false"><img src="https://drive.google.com/thumbnail?id=1PEjFC9Ka_LAsYoLs-jC-UB95Etu1M7ox&amp;sz=w2400" data-gd="1PEjFC9Ka_LAsYoLs-jC-UB95Etu1M7ox" data-w="2400" alt="" draggable="false" loading="lazy"><span class="slc"><b>新ワールド "Liminal Spaces" Level 7 公開</b><span>clusterにて新ワールドを公開しました。</span></span></a><a class="sli" href="https://cluster.mu/w/680667b0-3662-44dd-9dc3-2a20985fa5ed" target="_blank" rel="noopener noreferrer" draggable="false"><img src="https://drive.google.com/thumbnail?id=1pKw3h3-DehrXR_1sCD1oUaG8te8o5CJB&amp;sz=w2400" data-gd="1pKw3h3-DehrXR_1sCD1oUaG8te8o5CJB" data-w="2400" alt="" draggable="false" loading="lazy"><span class="slc"><b>新ワールド "Liminal Spaces" Level 37 公開</b><span>clusterにて新ワールドを公開しました。</span></span></a><a class="sli" href="https://cluster.mu/w/0fb6298c-7c77-4410-a40c-32fc241efc7e" target="_blank" rel="noopener noreferrer" draggable="false"><img src="https://drive.google.com/thumbnail?id=15CM3qmq_04sXCiwFdLmh1qqMUUK_aQPA&amp;sz=w2400" data-gd="15CM3qmq_04sXCiwFdLmh1qqMUUK_aQPA" data-w="2400" alt="" draggable="false" loading="lazy"><span class="slc"><b>新ワールド "Liminal Spaces" Level 0 公開</b><span>clusterにて新ワールドを公開しました。</span></span></a><a class="sli" href="https://cluster.mu/w/767ede48-c2d7-43f4-b75c-1d1828c8c3c9" target="_blank" rel="noopener noreferrer" draggable="false"><img src="https://drive.google.com/thumbnail?id=1dy24YxSgKs2BynvJakfKuWOSaOUtW58e&amp;sz=w2400" data-gd="1dy24YxSgKs2BynvJakfKuWOSaOUtW58e" data-w="2400" alt="" draggable="false" loading="lazy"><span class="slc"><b>新ワールド "Room" 公開</b><span>clusterにて新ワールドを公開しました。</span></span></a><div class="sli"><img src="https://drive.google.com/thumbnail?id=1LlHiOaM0m199jtjUfdD_CpY0Kr1VKOc9&amp;sz=w2400" data-gd="1LlHiOaM0m199jtjUfdD_CpY0Kr1VKOc9" data-w="2400" alt="" draggable="false" loading="lazy"><span class="slc"><b>VRMアバター "pin_001" 作成</b><span>Blender、CLIP STUDIO PAINT、UnityでVRMアバターをフルスクラッチしました。</span></span></div></div><div class="sla"><button class="sln p" type="button" aria-label="前へ">‹</button><button class="sln n" type="button" aria-label="次へ">›</button></div><div class="sld"><button type="button" data-i="0" aria-label="1枚目" aria-current="true"></button><button type="button" data-i="1" aria-label="2枚目" aria-current="false"></button><button type="button" data-i="2" aria-label="3枚目" aria-current="false"></button><button type="button" data-i="3" aria-label="4枚目" aria-current="false"></button><button type="button" data-i="4" aria-label="5枚目" aria-current="false"></button><button type="button" data-i="5" aria-label="6枚目" aria-current="false"></button></div></div></div>
+    <div id="tpS"><div class="sl" style="--pd: 6.8s; --z: 1.200; --d: 102px;" role="region" aria-roledescription="carousel" aria-label="ピックアップ"><div class="slt"><div class="sli on"><div class="slm"><img src="https://drive.google.com/thumbnail?id=1AyukFSe-IRbx5rk_TT1J6Dn19FWGaqc6&amp;sz=w1440" data-gd="1AyukFSe-IRbx5rk_TT1J6Dn19FWGaqc6" data-w="1440" alt="" draggable="false"></div></div><div class="sli r"><div class="slm"><img src="https://drive.google.com/thumbnail?id=1PEjFC9Ka_LAsYoLs-jC-UB95Etu1M7ox&amp;sz=w1440" data-gd="1PEjFC9Ka_LAsYoLs-jC-UB95Etu1M7ox" data-w="1440" alt="" draggable="false" loading="lazy"></div></div><div class="sli"><div class="slm"><img src="https://drive.google.com/thumbnail?id=1pKw3h3-DehrXR_1sCD1oUaG8te8o5CJB&amp;sz=w1440" data-gd="1pKw3h3-DehrXR_1sCD1oUaG8te8o5CJB" data-w="1440" alt="" draggable="false" loading="lazy"></div></div><div class="sli r"><div class="slm"><img src="https://drive.google.com/thumbnail?id=15CM3qmq_04sXCiwFdLmh1qqMUUK_aQPA&amp;sz=w1440" data-gd="15CM3qmq_04sXCiwFdLmh1qqMUUK_aQPA" data-w="1440" alt="" draggable="false" loading="lazy"></div></div><div class="sli"><div class="slm"><img src="https://drive.google.com/thumbnail?id=1dy24YxSgKs2BynvJakfKuWOSaOUtW58e&amp;sz=w1440" data-gd="1dy24YxSgKs2BynvJakfKuWOSaOUtW58e" data-w="1440" alt="" draggable="false" loading="lazy"></div></div><div class="sli r"><div class="slm"><img src="https://drive.google.com/thumbnail?id=1LlHiOaM0m199jtjUfdD_CpY0Kr1VKOc9&amp;sz=w1440" data-gd="1LlHiOaM0m199jtjUfdD_CpY0Kr1VKOc9" data-w="1440" alt="" draggable="false" loading="lazy"></div></div></div><div class="slb"><div class="slw"><div class="slc on"><a class="slx" href="#works/wmvntvl33u1c" data-jump="works/wmvntvl33u1c" draggable="false"><b>新ワールド "Liminal Spaces" The Frontrooms 公開</b></a></div><div class="slc"><a class="slx" href="#works/wmvnw6mc8hia" data-jump="works/wmvnw6mc8hia" draggable="false"><b>新ワールド "Liminal Spaces" Level 7 公開</b></a></div><div class="slc"><a class="slx" href="#works/wmvnu2i0i4vm" data-jump="works/wmvnu2i0i4vm" draggable="false"><b>新ワールド "Liminal Spaces" Level 37 公開</b></a></div><div class="slc"><a class="slx" href="#works/wmvnwdlnj21m" data-jump="works/wmvnwdlnj21m" draggable="false"><b>新ワールド "Liminal Spaces" Level 0 公開</b></a></div><div class="slc"><a class="slx" href="#works/wmvnwvpqw8w1" data-jump="works/wmvnwvpqw8w1" draggable="false"><b>新ワールド "Room" 公開</b></a></div><div class="slc"><a class="slx" href="#works/wmvo0tx0bp52" data-jump="works/wmvo0tx0bp52" draggable="false"><b>VRMアバター "pin_001" 作成</b></a></div></div></div><div class="sla"><button class="sln p" type="button" aria-label="前へ">‹</button><button class="sln n" type="button" aria-label="次へ">›</button></div><div class="sld"><button type="button" data-i="0" aria-label="1枚目" aria-current="true"></button><button type="button" data-i="1" aria-label="2枚目" aria-current="false"></button><button type="button" data-i="2" aria-label="3枚目" aria-current="false"></button><button type="button" data-i="3" aria-label="4枚目" aria-current="false"></button><button type="button" data-i="4" aria-label="5枚目" aria-current="false"></button><button type="button" data-i="5" aria-label="6枚目" aria-current="false"></button></div></div></div>
     <div id="tpW"><div class="tph"><h2>Works</h2><button class="fbtn" type="button" data-go="works">すべて見る →</button></div><div class="nl"><article class="card note" data-j="wmvnco5ekqao"><div class="nm"><span class="gt"><span class="tag ">Music</span></span>2026.10.17<div class="meta"><span>House</span></div></div><h3>"Vibrant waves.." リリース</h3><p>Tunecoreより各サイトで配信開始！</p><details><summary>続きを読む</summary><p>鮮やかな波、なつかしい風は今も曲の中に。
 2022年作のもの。</p><div class="emb"><iframe src="https://www.youtube.com/embed/8rCGzS6EQ_8?si=2enKj8oqBr-mTRGK" style="width:min(100%,560px);aspect-ratio:560/315" title="YouTube video player" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe><a class="eml" href="https://www.youtube.com/watch?v=8rCGzS6EQ_8" target="_blank" rel="noopener noreferrer">▶ YouTubeで見る</a></div></details><a class="ul" href="https://linkco.re/dgH8qpev?lang=ja" target="_blank" rel="noopener noreferrer">↗ linkco.re</a></article><article class="card note" data-j="wmvrigcargm5"><div class="nm"><span class="gt"><span class="tag m">3D</span></span>2026.03.20</div><h3>ウィークリー達成！ "Liminal Spaces" The Frontrooms</h3><p>公開中のワールドがcluster公式 Creators Guideで紹介されました！</p><details><summary>続きを読む</summary><p>2026.03.14 - 03.20 WEEKLY WORLD RANKING
 clusterアート部門でウィークリー1位を達成し、Creators Guideで紹介されました。
@@ -1040,42 +1060,61 @@ Liminal Spacesシリーズでは配布アセットを使用せず、モデルは
   };
   var slT=0;
   R.slides=function(){R.top();};
+  var PANV=30;
+  function panFit(){
+    var bx=document.querySelector('#tpS .sl');if(!bx)return;
+    var w=bx.clientWidth,pd=parseFloat(getComputedStyle(bx).getPropertyValue('--pd'))||9;
+    var tot=PANV*pd,z=Math.min(1.8,Math.max(1.2,1+tot*1.05/w));bx.style.setProperty('--z',z.toFixed(3));bx.style.setProperty('--d',Math.min((z-1)*w/2,tot/2)+'px');
+  }
+  window.addEventListener('resize',panFit);
   R.slider=function(on){
     var T=D.top,el=byId('tpS');if(slT){clearInterval(slT);slT=0;}
     var okU=function(u){return /^https?:\/\//.test(u||'');};
     var L=(D.slides||[]).filter(function(x){return okU(x.img);});
     if(!L.length){
       var A=[];
-      if(on('works'))A=A.concat(sorted(D.works,'works').filter(function(x){return okU(x.img)&&x.top!=='0';}).map(function(x){return {img:x.img,t:x.t,d:x.d,u:x.u};}));
-      if(on('results'))A=A.concat(sorted(D.results,'results').filter(function(x){return okU(x.img)&&x.top!=='0';}).map(function(x){return {img:x.img,t:x.t,d:x.d,u:x.u};}));
+      if(on('works'))A=A.concat(sorted(D.works,'works').filter(function(x){return okU(x.img)&&x.top!=='0';}).map(function(x){return {img:x.img,t:x.t,d:x.d,u:x.id?'[[works/'+x.id+']]':''};}));
+      if(on('results'))A=A.concat(sorted(D.results,'results').filter(function(x){return okU(x.img)&&x.top!=='0';}).map(function(x){return {img:x.img,t:x.t,d:x.d,u:x.id?'[[results/'+x.id+']]':''};}));
       L=A.slice(0,6);
     }
     if(T.sa==='0'||!L.length){el.innerHTML='';return;}
-    var sl=L.map(function(x,i){
-      var g=gd(x.img,960),a=g!==x.img?' data-gd="'+esc(/id=([\w-]+)/.exec(g)[1])+'" data-w="960"':'';
+    var parts=L.map(function(x,i){
+      var g=gd(x.img,1280),a=g!==x.img?' data-gd="'+esc(/id=([\w-]+)/.exec(g)[1])+'" data-w="1280"':'';
       var im="<img src='"+esc(g)+"'"+a+" alt='' draggable='false'"+(i?" loading='lazy'":'')+">";
-      var tt=String(x.t||'').trim(),dd=String(x.d||'').trim();
-      var cap=(tt||dd)?"<span class='slc'>"+(tt?"<b>"+esc(tt)+"</b>":'')+(dd?"<span>"+esc(dd)+"</span>":'')+"</span>":'';
-      var jj=jres(String(x.u||'').trim());
-      if(jj)return "<a class='sli' href='"+esc(jj.href)+"' data-jump='"+esc(jj.href.slice(1))+"' draggable='false'>"+im+cap+"</a>";
-      return /^https?:\/\/[^\s]+$/i.test(String(x.u||'').trim())?"<a class='sli' href='"+esc(String(x.u).trim())+"' target='_blank' rel='noopener noreferrer' draggable='false'>"+im+cap+"</a>":"<div class='sli'>"+im+cap+"</div>";
-    }).join('');
+      var tt=String(x.t||'').trim(),u=String(x.u||'').trim(),jj=jres(u),href='',at='';
+      if(jj){href=jj.href;at=" data-jump='"+esc(jj.href.slice(1))+"'";}
+      else if(/^https?:\/\/[^\s]+$/i.test(u)){href=u;at=" target='_blank' rel='noopener noreferrer'";}
+      var cap=tt?"<div class='slc"+(i?'':' on')+"'>"+(href?"<a class='slx' href='"+esc(href)+"'"+at+" draggable='false'>":"<div class='slx'>")+"<b>"+esc(tt)+"</b>"+(href?"</a>":"</div>")+"</div>":'';
+      return ["<div class='sli"+(i%2?' r':'')+"'><div class='slm'>"+im+"</div></div>",cap];
+    });
     var n=L.length;
-    el.innerHTML="<div class='sl' style='--pd:"+(Math.max(2,parseFloat(T.sl)||6)+1.5)+"s' role='region' aria-roledescription='carousel' aria-label='ピックアップ'><div class='slt'>"+sl+"</div>"+(n>1?"<div class='sla'><button class='sln p' type='button' aria-label='前へ'>‹</button><button class='sln n' type='button' aria-label='次へ'>›</button></div><div class='sld'>"+L.map(function(_,i){return "<button type='button' data-i='"+i+"' aria-label='"+(i+1)+"枚目'></button>";}).join('')+"</div>":'')+"</div>";
-    var sis=el.querySelectorAll('.sli');if(sis[0])sis[0].classList.add('on');
+    el.innerHTML="<div class='sl' style='--pd:"+(Math.max(2,parseFloat(T.sl)||6)+.8)+"s' role='region' aria-roledescription='carousel' aria-label='ピックアップ'><div class='slt'>"+parts.map(function(q){return q[0];}).join('')+"</div><div class='slb'><div class='slw'>"+parts.map(function(q){return q[1];}).join('')+"</div></div>"+(n>1?"<div class='sla'><button class='sln p' type='button' aria-label='前へ'>‹</button><button class='sln n' type='button' aria-label='次へ'>›</button></div><div class='sld'>"+L.map(function(_,i){return "<button type='button' data-i='"+i+"' aria-label='"+(i+1)+"枚目'></button>";}).join('')+"</div>":'')+"</div>";
+    var box=el.firstChild,sis=box.querySelectorAll('.sli'),cps=box.querySelectorAll('.slc');
+    sis[0].classList.add('on');
+    box.addEventListener('load',panFit,true);panFit();
     if(n<2)return;
-    var box=el.firstChild,tr=box.firstChild,ds=box.querySelectorAll('.sld button'),cur=0,paused=false,moved=false,x0=null;
-    function go(i){cur=(i+n)%n;tr.style.transform='translateX('+(-100*cur)+'%)';[].forEach.call(ds,function(d,k){d.setAttribute('aria-current',k===cur?'true':'false');});[].forEach.call(sis,function(x,k){x.classList.toggle('on',k===cur);});}
-    go(0);
-    box.addEventListener('click',function(e){var b=e.target.closest('button');if(b){if(b.classList.contains('p'))go(cur-1);else if(b.classList.contains('n'))go(cur+1);else if(b.dataset.i!=null)go(+b.dataset.i);return;}if(moved){e.preventDefault();moved=false;}},true);
+    var ds=box.querySelectorAll('.sld button'),cur=0,paused=false,moved=false,x0=null,offT=0;
+    function dots(){[].forEach.call(ds,function(d,k){d.setAttribute('aria-current',k===cur?'true':'false');});}
+    function show(p,rv){
+      if(p===cur)return;var old=sis[cur],nw=sis[p];
+      [].forEach.call(sis,function(x){if(x!==old&&x!==nw)x.classList.remove('on','in','out','rv');});
+      old.classList.remove('in');old.classList.add('out');old.classList.toggle('rv',!!rv);
+      nw.classList.remove('out');nw.classList.add('on','in');nw.classList.toggle('rv',!!rv);
+      clearTimeout(offT);offT=setTimeout(function(){old.classList.remove('on','out','rv');},850);
+      cur=p;dots();[].forEach.call(cps,function(c,k){c.classList.toggle('on',k===p);});
+    }
+    function next(){show((cur+1)%n,false);}
+    function prev(){show((cur+n-1)%n,true);}
+    dots();
+    box.addEventListener('click',function(e){var b=e.target.closest('button');if(b){if(b.classList.contains('p'))prev();else if(b.classList.contains('n'))next();else if(b.dataset.i!=null)show(+b.dataset.i,+b.dataset.i<cur);return;}if(moved){e.preventDefault();moved=false;}},true);
     box.addEventListener('pointerdown',function(e){if(e.target.closest('button'))return;x0=e.clientX;moved=false;});
-    box.addEventListener('pointerup',function(e){if(x0==null)return;var dx=e.clientX-x0;x0=null;if(Math.abs(dx)>40){moved=true;go(cur+(dx<0?1:-1));}});
+    box.addEventListener('pointerup',function(e){if(x0==null)return;var dx=e.clientX-x0;x0=null;if(Math.abs(dx)>40){moved=true;if(dx<0)next();else prev();}});
     box.addEventListener('pointercancel',function(){x0=null;});
     box.addEventListener('mouseenter',function(){paused=true;});box.addEventListener('mouseleave',function(){paused=false;});
     box.addEventListener('focusin',function(){paused=true;});box.addEventListener('focusout',function(){paused=false;});
     var sec=Math.max(2,parseFloat(T.sl)||6),m=document.documentElement.getAttribute('data-motion')||'auto';
     var still=m==='off'||(m!=='on'&&window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
-    if(!still)slT=setInterval(function(){if(!paused&&!document.hidden&&box.isConnected&&box.offsetParent)go(cur+1);},sec*1000);
+    if(!still)slT=setInterval(function(){if(!paused&&!document.hidden&&box.isConnected&&box.offsetParent)next();},sec*1000);
   };
 
   function inl(v){return rich(v).replace(/^<p>/,'').replace(/<\/p>$/,'');}
@@ -1330,7 +1369,7 @@ Liminal Spacesシリーズでは配布アセットを使用せず、モデルは
     skills:{n:'About スキル',f:[['l','項目名'],['v','レベル（0〜100）','n']]},
     contact:{n:'About 連絡先',f:[['l','項目名（例: Mail / DM）'],['v','内容（メールアドレスなら自動でリンクになります）'],['u','リンク先（任意・https:// ・mailto: ・サイト内ジャンプは [[notes/タイトル]] の形式）']]},
     hist:{n:'About 年表',f:[['y','年'],['t','できごと']]},
-    slides:{n:'Topスライド',f:[['img',IMG+'（大きく表示）'],['t','タイトル（任意）'],['d','説明（任意）'],['u','リンク先URL（任意・https:// 。サイト内ジャンプは [[notes/タイトル]] の形式）']]},
+    slides:{n:'Topスライド',f:[['img',IMG+'（大きく表示）'],['t','タイトル（任意）'],['u','リンク先（任意・タイトルの文字にリンクが付きます。https:// か [[notes/タイトル]] の形式でサイト内ジャンプ）']]},
     links:{n:'Links',f:[['i','アイコン文字'],['t','名前'],['s','説明'],['u','URL（https://）'],['img','アイコン画像URL（任意・あれば文字の代わりに表示）']]}
   };
   var ADD={
