@@ -482,10 +482,10 @@ html{overflow-y:scroll;scrollbar-gutter:stable}
 .sli.in.rv .slm{animation-name:slinr}
 .sli.out .slm{animation:slout .8s cubic-bezier(.4,0,.2,1) both}
 .sli.out.rv .slm{animation-name:sloutr}
-@keyframes slin{from{opacity:0;transform:translateX(30%)}to{opacity:1;transform:none}}
-@keyframes slinr{from{opacity:0;transform:translateX(-30%)}to{opacity:1;transform:none}}
-@keyframes slout{from{opacity:1;transform:none}to{opacity:0;transform:translateX(-30%)}}
-@keyframes sloutr{from{opacity:1;transform:none}to{opacity:0;transform:translateX(30%)}}
+@keyframes slin{from{opacity:0}to{opacity:1}}
+@keyframes slinr{from{opacity:0}to{opacity:1}}
+@keyframes slout{from{opacity:1}to{opacity:1}}
+@keyframes sloutr{from{opacity:1}to{opacity:1}}
 .sli img{position:absolute;left:calc((1 - var(--z,1.2))*50%);top:calc((1 - var(--z,1.2))*50%);width:calc(var(--z,1.2)*100%);height:calc(var(--z,1.2)*100%);object-fit:cover;display:block;pointer-events:none}
 .sli.on img{animation:slpan var(--pd,9s) linear forwards}
 .sli.r.on img{animation-name:slpanr}
@@ -987,7 +987,7 @@ Liminal Spacesシリーズでは配布アセットを使用せず、モデルは
   function im(u){if(!/^https?:\/\//.test(u||''))return '';var g=gd(u,640);return '<img class="pic" src="'+esc(g)+'"'+(g!==u?' data-gd="'+esc(/id=([\w-]+)/.exec(g)[1])+'" data-w="640"':'')+' alt="" loading="lazy">';}
   // 画像の解像度を表示幅（×画面密度）に合わせる。大きくなるときだけ取得し直す
   var fitQ=0;
-  function fitPics(){fitQ=0;var d=Math.min(window.devicePixelRatio||1,2);[].forEach.call(document.querySelectorAll('img[data-gd]'),function(i){var w=i.clientWidth;if(!w)return;if(i.closest('.sl'))w=Math.max(w,i.clientHeight*1.78);var need=Math.min(2560,Math.ceil(w*d/160)*160);if(need>(+i.dataset.w||0)){i.dataset.w=need;i.src='https://drive.google.com/thumbnail?id='+i.dataset.gd+'&sz=w'+need;}});}
+  function fitPics(){fitQ=0;var d=Math.min(window.devicePixelRatio||1,2);[].forEach.call(document.querySelectorAll('img[data-gd]'),function(i){var w=i.clientWidth;if(!w)return;var sl0=i.closest('.sl');if(sl0)w=Math.max(w,i.clientHeight*1.78);var need=Math.min(sl0?1920:2000,Math.ceil(w*d/160)*160);if(need>(+i.dataset.w||0)){i.dataset.w=need;i.src='https://drive.google.com/thumbnail?id='+i.dataset.gd+'&sz=w'+need;}});}
   function fitSoon(){if(!fitQ)fitQ=requestAnimationFrame(fitPics);}
   new MutationObserver(fitSoon).observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['hidden','open']});
   window.addEventListener('resize',fitSoon);
@@ -1058,7 +1058,7 @@ Liminal Spacesシリーズでは配布アセットを使用せず、モデルは
     byId('tpW').innerHTML=w.length?head(T.wh,'works')+"<div class='nl'>"+H.works(w,'all')+"</div>":'';
     byId('tpR').innerHTML=r.length?head(T.rh,'results')+"<div class='rl'>"+H.results(r)+"</div>":'';
   };
-  var slT=0;
+  var slT=0,slSig='';
   R.slides=function(){R.top();};
   var PANV=30;
   function panFit(){
@@ -1068,7 +1068,7 @@ Liminal Spacesシリーズでは配布アセットを使用せず、モデルは
   }
   window.addEventListener('resize',panFit);
   R.slider=function(on){
-    var T=D.top,el=byId('tpS');if(slT){clearInterval(slT);slT=0;}
+    var T=D.top,el=byId('tpS');
     var okU=function(u){return /^https?:\/\//.test(u||'');};
     var L=(D.slides||[]).filter(function(x){return okU(x.img);});
     if(!L.length){
@@ -1077,6 +1077,9 @@ Liminal Spacesシリーズでは配布アセットを使用せず、モデルは
       if(on('results'))A=A.concat(sorted(D.results,'results').filter(function(x){return okU(x.img)&&x.top!=='0';}).map(function(x){return {img:x.img,t:x.t,d:x.d,u:x.id?'[[results/'+x.id+']]':''};}));
       L=A.slice(0,6);
     }
+    var sig=JSON.stringify([L,T.sa,T.sl,document.documentElement.getAttribute('data-motion')]);
+    if(sig===slSig&&el.firstChild)return;
+    slSig=sig;if(slT){clearInterval(slT);slT=0;}
     if(T.sa==='0'||!L.length){el.innerHTML='';return;}
     var parts=L.map(function(x,i){
       var g=gd(x.img,1280),a=g!==x.img?' data-gd="'+esc(/id=([\w-]+)/.exec(g)[1])+'" data-w="1280"':'';
