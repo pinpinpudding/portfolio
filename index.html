@@ -19,7 +19,7 @@
   padding-top:env(safe-area-inset-top,0px);
   padding-bottom:env(safe-area-inset-bottom,0px);
 }
-html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+#wkList,.nl{overflow-anchor:none}html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
 *,*::before,*::after{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans JP','Poppins',sans-serif;line-height:1.7;overflow-x:hidden;overflow-x:clip}
 .bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
@@ -57,10 +57,13 @@ main,header,footer{position:relative;z-index:1}
 
 /* grid + cards */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:26px;padding-bottom:60px}
-.card{background:var(--card);border-radius:28px;box-shadow:var(--sh);padding:14px 14px 22px;transition:opacity .3s,transform .3s,box-shadow .3s}
+.card{background:var(--card);border-radius:28px;box-shadow:var(--sh);padding:14px 14px 22px;transition:opacity .3s,transform .38s cubic-bezier(.2,.8,.2,1),box-shadow .38s}
 .card.out{opacity:0;transform:scale(.92) translateY(10px)}
 .card[hidden]{display:none}
 .card:hover{transform:translateY(-4px)}
+@media (hover:hover) and (prefers-reduced-motion:no-preference){.grid .card:hover{transform:translateY(-7px) scale(1.03);box-shadow:var(--sh),0 22px 44px rgba(70,60,140,.18);z-index:2;position:relative}}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.55s;animation-timing-function:ease}
+:root.tt *,:root.tt *::before,:root.tt *::after{transition:background-color .5s,color .5s,border-color .5s,box-shadow .5s,fill .5s,opacity .5s!important}
 .art{height:190px;border-radius:20px;position:relative;overflow:hidden;display:grid;place-items:center}
 .body{padding:16px 8px 0}
 .tag{display:inline-block;font:700 11px Poppins,sans-serif;padding:4px 12px;border-radius:99px;color:var(--pink-d);background:#FFEAF4;margin-bottom:8px}
@@ -469,6 +472,7 @@ html{overflow-y:scroll;scrollbar-gutter:stable}
 :root[data-theme="mono"] .tag.m{background:#D4D4D2;color:#111}
 :root[data-theme="mono"] .tag.l{background:transparent;color:#111;box-shadow:inset 0 0 0 1px #111}
 .emb{margin:14px 0 6px}
+.emb,.pv,.tpe-b{text-align:center}.emb{display:flex;flex-direction:column;align-items:center}.emb .eml{display:block;margin:8px auto 0}.card .emb iframe,.card .pv iframe,.card .pv img,.card .emb img{margin-left:auto;margin-right:auto}
 .emb iframe{display:block;border:0;max-width:100%;border-radius:0;background:rgba(0,0,0,.04)}:root .pv iframe,:root .tpe iframe,:root .emb iframe,:root details iframe{border-radius:0!important}
 .note details a{color:var(--pink-d);word-break:break-all}
 .eml{display:inline-block;margin-top:6px;font:600 12px Poppins,sans-serif;color:var(--pink-d)}
@@ -564,7 +568,7 @@ a.jl:not(.ul){color:var(--pink-d);font-weight:600;word-break:break-all}
     <div id="tpe-bmw7n8sc11z5" class="tpe hero hb hb-h"><h1 style="font-size:min(35px,18vw)"><br>多分野における空間の表現</h1></div>
     <div id="tpe-bmw7ne6obdyf" class="tpe hero hb hb-s"><p>・cluster ウィークリー アート部門 1位
 音・3D/グラフィック・写真で記憶と感情を呼び起こします。</p><div class="pix" id="pix" aria-hidden="true"><svg viewBox="0 0 8 8" shape-rendering="crispEdges"><rect x="2" y="0" width="1" height="1" style="fill:var(--pink)"></rect><rect x="3" y="0" width="1" height="1" style="fill:var(--pink)"></rect><rect x="4" y="0" width="1" height="1" style="fill:var(--pink)"></rect><rect x="5" y="0" width="1" height="1" style="fill:var(--pink)"></rect><rect x="1" y="1" width="1" height="1" style="fill:var(--pink)"></rect><rect x="2" y="1" width="1" height="1" style="fill:var(--pink)"></rect><rect x="3" y="1" width="1" height="1" style="fill:var(--pink)"></rect><rect x="4" y="1" width="1" height="1" style="fill:var(--pink)"></rect><rect x="5" y="1" width="1" height="1" style="fill:var(--pink)"></rect><rect x="6" y="1" width="1" height="1" style="fill:var(--pink)"></rect><rect x="0" y="2" width="1" height="1" style="fill:var(--pink)"></rect><rect x="1" y="2" width="1" height="1" style="fill:var(--pink)"></rect><rect x="2" y="2" width="1" height="1" style="fill:var(--pink)"></rect><rect x="3" y="2" width="1" height="1" style="fill:var(--pink)"></rect><rect x="4" y="2" width="1" height="1" style="fill:var(--pink)"></rect><rect x="5" y="2" width="1" height="1" style="fill:var(--pink)"></rect><rect x="6" y="2" width="1" height="1" style="fill:var(--pink)"></rect><rect x="7" y="2" width="1" height="1" style="fill:var(--pink)"></rect><rect x="0" y="3" width="1" height="1" style="fill:var(--pink)"></rect><rect x="1" y="3" width="1" height="1" style="fill:var(--pink)"></rect><rect x="2" y="3" width="1" height="1" style="fill:var(--ink)"></rect><rect x="3" y="3" width="1" height="1" style="fill:var(--pink)"></rect><rect x="4" y="3" width="1" height="1" style="fill:var(--pink)"></rect><rect x="5" y="3" width="1" height="1" style="fill:var(--ink)"></rect><rect x="6" y="3" width="1" height="1" style="fill:var(--pink)"></rect><rect x="7" y="3" width="1" height="1" style="fill:var(--pink)"></rect><rect x="0" y="4" width="1" height="1" style="fill:var(--pink)"></rect><rect x="1" y="4" width="1" height="1" style="fill:var(--pink)"></rect><rect x="2" y="4" width="1" height="1" style="fill:var(--pink)"></rect><rect x="3" y="4" width="1" height="1" style="fill:var(--pink)"></rect><rect x="4" y="4" width="1" height="1" style="fill:var(--pink)"></rect><rect x="5" y="4" width="1" height="1" style="fill:var(--pink)"></rect><rect x="6" y="4" width="1" height="1" style="fill:var(--pink)"></rect><rect x="7" y="4" width="1" height="1" style="fill:var(--pink)"></rect><rect x="0" y="5" width="1" height="1" style="fill:var(--pink)"></rect><rect x="1" y="5" width="1" height="1" style="fill:var(--pink)"></rect><rect x="2" y="5" width="1" height="1" style="fill:var(--pink)"></rect><rect x="3" y="5" width="1" height="1" style="fill:var(--pink)"></rect><rect x="4" y="5" width="1" height="1" style="fill:var(--pink)"></rect><rect x="5" y="5" width="1" height="1" style="fill:var(--pink)"></rect><rect x="6" y="5" width="1" height="1" style="fill:var(--pink)"></rect><rect x="7" y="5" width="1" height="1" style="fill:var(--pink)"></rect><rect x="0" y="6" width="1" height="1" style="fill:var(--pink)"></rect><rect x="1" y="6" width="1" height="1" style="fill:var(--pink)"></rect><rect x="2" y="6" width="1" height="1" style="fill:var(--pink)"></rect><rect x="3" y="6" width="1" height="1" style="fill:var(--pink)"></rect><rect x="4" y="6" width="1" height="1" style="fill:var(--pink)"></rect><rect x="5" y="6" width="1" height="1" style="fill:var(--pink)"></rect><rect x="6" y="6" width="1" height="1" style="fill:var(--pink)"></rect><rect x="7" y="6" width="1" height="1" style="fill:var(--pink)"></rect><rect x="0" y="7" width="1" height="1" style="fill:var(--pink)"></rect><rect x="1" y="7" width="1" height="1" style="fill:var(--pink)"></rect><rect x="3" y="7" width="1" height="1" style="fill:var(--pink)"></rect><rect x="4" y="7" width="1" height="1" style="fill:var(--pink)"></rect><rect x="6" y="7" width="1" height="1" style="fill:var(--pink)"></rect><rect x="7" y="7" width="1" height="1" style="fill:var(--pink)"></rect></svg><svg viewBox="0 0 8 8" shape-rendering="crispEdges"><rect x="1" y="0" width="1" height="1" style="fill:var(--pink)"></rect><rect x="2" y="0" width="1" height="1" style="fill:var(--pink)"></rect><rect x="5" y="0" width="1" height="1" style="fill:var(--pink)"></rect><rect x="6" y="0" width="1" height="1" style="fill:var(--pink)"></rect><rect x="0" y="1" width="1" height="1" style="fill:var(--pink)"></rect><rect x="1" y="1" width="1" height="1" style="fill:var(--pink)"></rect><rect x="2" y="1" width="1" height="1" style="fill:var(--pink)"></rect><rect x="3" y="1" width="1" height="1" style="fill:var(--pink)"></rect><rect x="4" y="1" width="1" height="1" style="fill:var(--pink)"></rect><rect x="5" y="1" width="1" height="1" style="fill:var(--pink)"></rect><rect x="6" y="1" width="1" height="1" style="fill:var(--pink)"></rect><rect x="7" y="1" width="1" height="1" style="fill:var(--pink)"></rect><rect x="0" y="2" width="1" height="1" style="fill:var(--pink)"></rect><rect x="1" y="2" width="1" height="1" style="fill:var(--pink)"></rect><rect x="2" y="2" width="1" height="1" style="fill:var(--pink)"></rect><rect x="3" y="2" width="1" height="1" style="fill:var(--pink)"></rect><rect x="4" y="2" width="1" height="1" style="fill:var(--pink)"></rect><rect x="5" y="2" width="1" height="1" style="fill:var(--pink)"></rect><rect x="6" y="2" width="1" height="1" style="fill:var(--pink)"></rect><rect x="7" y="2" width="1" height="1" style="fill:var(--pink)"></rect><rect x="0" y="3" width="1" height="1" style="fill:var(--pink)"></rect><rect x="1" y="3" width="1" height="1" style="fill:var(--pink)"></rect><rect x="2" y="3" width="1" height="1" style="fill:var(--pink)"></rect><rect x="3" y="3" width="1" height="1" style="fill:var(--pink)"></rect><rect x="4" y="3" width="1" height="1" style="fill:var(--pink)"></rect><rect x="5" y="3" width="1" height="1" style="fill:var(--pink)"></rect><rect x="6" y="3" width="1" height="1" style="fill:var(--pink)"></rect><rect x="7" y="3" width="1" height="1" style="fill:var(--pink)"></rect><rect x="1" y="4" width="1" height="1" style="fill:var(--pink)"></rect><rect x="2" y="4" width="1" height="1" style="fill:var(--pink)"></rect><rect x="3" y="4" width="1" height="1" style="fill:var(--pink)"></rect><rect x="4" y="4" width="1" height="1" style="fill:var(--pink)"></rect><rect x="5" y="4" width="1" height="1" style="fill:var(--pink)"></rect><rect x="6" y="4" width="1" height="1" style="fill:var(--pink)"></rect><rect x="2" y="5" width="1" height="1" style="fill:var(--pink)"></rect><rect x="3" y="5" width="1" height="1" style="fill:var(--pink)"></rect><rect x="4" y="5" width="1" height="1" style="fill:var(--pink)"></rect><rect x="5" y="5" width="1" height="1" style="fill:var(--pink)"></rect><rect x="3" y="6" width="1" height="1" style="fill:var(--pink)"></rect><rect x="4" y="6" width="1" height="1" style="fill:var(--pink)"></rect></svg><svg viewBox="0 0 8 8" shape-rendering="crispEdges"><rect x="3" y="0" width="1" height="1" style="fill:var(--mint)"></rect><rect x="4" y="0" width="1" height="1" style="fill:var(--mint)"></rect><rect x="3" y="1" width="1" height="1" style="fill:var(--mint)"></rect><rect x="4" y="1" width="1" height="1" style="fill:var(--mint)"></rect><rect x="0" y="2" width="1" height="1" style="fill:var(--mint)"></rect><rect x="1" y="2" width="1" height="1" style="fill:var(--mint)"></rect><rect x="2" y="2" width="1" height="1" style="fill:var(--mint)"></rect><rect x="3" y="2" width="1" height="1" style="fill:var(--mint)"></rect><rect x="4" y="2" width="1" height="1" style="fill:var(--mint)"></rect><rect x="5" y="2" width="1" height="1" style="fill:var(--mint)"></rect><rect x="6" y="2" width="1" height="1" style="fill:var(--mint)"></rect><rect x="7" y="2" width="1" height="1" style="fill:var(--mint)"></rect><rect x="1" y="3" width="1" height="1" style="fill:var(--mint)"></rect><rect x="2" y="3" width="1" height="1" style="fill:var(--mint)"></rect><rect x="3" y="3" width="1" height="1" style="fill:var(--mint)"></rect><rect x="4" y="3" width="1" height="1" style="fill:var(--mint)"></rect><rect x="5" y="3" width="1" height="1" style="fill:var(--mint)"></rect><rect x="6" y="3" width="1" height="1" style="fill:var(--mint)"></rect><rect x="2" y="4" width="1" height="1" style="fill:var(--mint)"></rect><rect x="3" y="4" width="1" height="1" style="fill:var(--mint)"></rect><rect x="4" y="4" width="1" height="1" style="fill:var(--mint)"></rect><rect x="5" y="4" width="1" height="1" style="fill:var(--mint)"></rect><rect x="1" y="5" width="1" height="1" style="fill:var(--mint)"></rect><rect x="2" y="5" width="1" height="1" style="fill:var(--mint)"></rect><rect x="5" y="5" width="1" height="1" style="fill:var(--mint)"></rect><rect x="6" y="5" width="1" height="1" style="fill:var(--mint)"></rect><rect x="1" y="6" width="1" height="1" style="fill:var(--mint)"></rect><rect x="6" y="6" width="1" height="1" style="fill:var(--mint)"></rect></svg><svg viewBox="0 0 8 8" shape-rendering="crispEdges"><rect x="2" y="0" width="1" height="1" style="fill:#6E8F6A"></rect><rect x="5" y="0" width="1" height="1" style="fill:#6E8F6A"></rect><rect x="1" y="1" width="1" height="1" style="fill:#6E8F6A"></rect><rect x="2" y="1" width="1" height="1" style="fill:#6E8F6A"></rect><rect x="3" y="1" width="1" height="1" style="fill:#6E8F6A"></rect><rect x="4" y="1" width="1" height="1" style="fill:#6E8F6A"></rect><rect x="5" y="1" width="1" height="1" style="fill:#6E8F6A"></rect><rect x="6" y="1" width="1" height="1" style="fill:#6E8F6A"></rect><rect x="2" y="2" width="1" height="1" style="fill:#6E8F6A"></rect><rect x="3" y="2" width="1" height="1" style="fill:#6E8F6A"></rect><rect x="4" y="2" width="1" height="1" style="fill:#6E8F6A"></rect><rect x="5" y="2" width="1" height="1" style="fill:#6E8F6A"></rect><rect x="3" y="3" width="1" height="1" style="fill:#6E8F6A"></rect><rect x="4" y="3" width="1" height="1" style="fill:#6E8F6A"></rect><rect x="2" y="4" width="1" height="1" style="fill:#B8805C"></rect><rect x="3" y="4" width="1" height="1" style="fill:#B8805C"></rect><rect x="4" y="4" width="1" height="1" style="fill:#B8805C"></rect><rect x="5" y="4" width="1" height="1" style="fill:#B8805C"></rect><rect x="2" y="5" width="1" height="1" style="fill:#B8805C"></rect><rect x="3" y="5" width="1" height="1" style="fill:#B8805C"></rect><rect x="4" y="5" width="1" height="1" style="fill:#B8805C"></rect><rect x="5" y="5" width="1" height="1" style="fill:#B8805C"></rect><rect x="3" y="6" width="1" height="1" style="fill:#B8805C"></rect><rect x="4" y="6" width="1" height="1" style="fill:#B8805C"></rect></svg></div></div>
-    <div id="tpe-bmvwg1pwhb4h" class="tpe"><div class="tpe-b"><div class="emb"><iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2390450886&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true" style="width:min(100%,1000px);height:166px" title="埋め込みコンテンツ" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe></div></div></div>
+    <div id="tpe-bmvwg1pwhb4h" class="tpe"><div class="tpe-b"><div class="emb"><iframe data-src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2390450886&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true" style="width:min(100%,1000px);height:166px" title="埋め込みコンテンツ" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe></div></div></div>
     <div id="tpS"><div class="sl" style="--pd: 6.8s; --z: 1.200; --d: 102px;" role="region" aria-roledescription="carousel" aria-label="ピックアップ"><div class="slt"><div class="sli on"><div class="slm"><img src="https://drive.google.com/thumbnail?id=1dMNtx4kQRMNZSvQDHAmbBYE2n-uQ8_02&amp;sz=w1600" alt="" draggable="false"></div></div><div class="sli r"><div class="slm"><img src="https://drive.google.com/thumbnail?id=1oAsXcTDb_RhWtdJbcnhM-rAiGljWE_04&amp;sz=w1600" alt="" draggable="false" loading="lazy"></div></div><div class="sli"><div class="slm"><img src="https://drive.google.com/thumbnail?id=1AyukFSe-IRbx5rk_TT1J6Dn19FWGaqc6&amp;sz=w1600" alt="" draggable="false" loading="lazy"></div></div><div class="sli r"><div class="slm"><img src="https://drive.google.com/thumbnail?id=1PEjFC9Ka_LAsYoLs-jC-UB95Etu1M7ox&amp;sz=w1600" alt="" draggable="false" loading="lazy"></div></div><div class="sli"><div class="slm"><img src="https://drive.google.com/thumbnail?id=1pKw3h3-DehrXR_1sCD1oUaG8te8o5CJB&amp;sz=w1600" alt="" draggable="false" loading="lazy"></div></div><div class="sli r"><div class="slm"><img src="https://drive.google.com/thumbnail?id=15CM3qmq_04sXCiwFdLmh1qqMUUK_aQPA&amp;sz=w1600" alt="" draggable="false" loading="lazy"></div></div></div><div class="slb"><div class="slw"><div class="slc on"><a class="slx" href="#works/wmw7jep194n2" data-jump="works/wmw7jep194n2" draggable="false"><b>新ワールド "Liminal Spaces" Level 2 公開</b></a></div><div class="slc"><a class="slx" href="#works/wmw7gzbsr87" data-jump="works/wmw7gzbsr87" draggable="false"><b>"Room" Trailer 公開</b></a></div><div class="slc"><a class="slx" href="#works/wmvntvl33u1c" data-jump="works/wmvntvl33u1c" draggable="false"><b>新ワールド "Liminal Spaces" The Frontrooms 公開</b></a></div><div class="slc"><a class="slx" href="#works/wmvnw6mc8hia" data-jump="works/wmvnw6mc8hia" draggable="false"><b>新ワールド "Liminal Spaces" Level 7 公開</b></a></div><div class="slc"><a class="slx" href="#works/wmvnu2i0i4vm" data-jump="works/wmvnu2i0i4vm" draggable="false"><b>新ワールド "Liminal Spaces" Level 37 公開</b></a></div><div class="slc"><a class="slx" href="#works/wmvnwdlnj21m" data-jump="works/wmvnwdlnj21m" draggable="false"><b>新ワールド "Liminal Spaces" Level 0 公開</b></a></div></div></div><div class="sla"><button class="sln p" type="button" aria-label="前へ">‹</button><button class="sln n" type="button" aria-label="次へ">›</button></div><div class="sld"><button type="button" data-i="0" aria-label="1枚目" aria-current="true"></button><button type="button" data-i="1" aria-label="2枚目" aria-current="false"></button><button type="button" data-i="2" aria-label="3枚目" aria-current="false"></button><button type="button" data-i="3" aria-label="4枚目" aria-current="false"></button><button type="button" data-i="4" aria-label="5枚目" aria-current="false"></button><button type="button" data-i="5" aria-label="6枚目" aria-current="false"></button></div></div></div>
     <div id="tpW"><div class="tph"><h2>Works</h2><button class="fbtn" type="button" data-go="works">すべて見る →</button></div><div class="nl"><article class="card note" data-j="wmw7jep194n2"><div class="nm"><span class="gt"><span class="tag m">3D</span></span>2026.11.06<div class="meta"><span>Liminal</span></div></div><h3>新ワールド "Liminal Spaces" Level 2 公開</h3><p>clusterにて新ワールドを公開しました。</p><div class="pv"><img class="pic" src="https://drive.google.com/thumbnail?id=1dMNtx4kQRMNZSvQDHAmbBYE2n-uQ8_02&amp;sz=w1600" alt="" loading="lazy"></div><details><summary>詳細</summary><p>"Level 2"
 施設の関係者ですら入らない古びたパイプルーム。
@@ -575,14 +579,14 @@ a.jl:not(.ul){color:var(--pink-d);font-weight:600;word-break:break-all}
 ●制作における工夫
 ステージの全体にわたって、描画範囲外で球体をアニメーション。XY軸それぞれ中途半端な周期でsin波で振動させ、アニメーションのトリガーと接触判定。対応するオブジェクトのアニメーションを再生する。
 周期の最小公倍数を大きくすればするほどパターンのループはしにくくなるが、始点のランダム化ができていないので疑似となる。
-片方の軸のアニメーションをプレイヤーの移動によって開始すれば事実上のランダム化ができるが、今回のワールドでは必要なしと判断。</p></details><a class="ul" href="https://cluster.mu/w/75010847-93c5-4393-a3b0-c2f8f599f79a" target="_blank" rel="noopener noreferrer">↗ cluster.mu</a></article><article class="card note" data-j="wmvnco5ekqao"><div class="nm"><span class="gt"><span class="tag ">Music</span></span>2026.10.17<div class="meta"><span>House</span></div></div><h3>"Vibrant waves.." リリース</h3><p>Tunecoreより各サイトで配信開始！</p><div class="pv"><div class="emb"><iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2390450886&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true" style="width:min(100%,1000px);height:200px" title="埋め込みコンテンツ" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe></div></div><details><summary>詳細</summary><p>鮮やかな波、なつかしい風は今も曲の中に。</p><div class="emb"><iframe src="https://www.youtube.com/embed/8rCGzS6EQ_8?si=2enKj8oqBr-mTRGK" style="width:min(100%,560px);aspect-ratio:560/315" title="YouTube video player" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe><a class="eml" href="https://www.youtube.com/watch?v=8rCGzS6EQ_8" target="_blank" rel="noopener noreferrer">▶ YouTubeで見る</a></div></details><a class="ul" href="https://linkco.re/dgH8qpev?lang=ja" target="_blank" rel="noopener noreferrer">↗ linkco.re</a></article><article class="card note" data-j="wmw7gzbsr87"><div class="nm"><span class="gt"><span class="tag m">3D</span></span>2026.09.13<div class="meta"><span>Puzzle</span></div></div><h3>"Room" Trailer 公開</h3><p>clusterにて公開中のワールド"Room"のトレーラー映像を公開しました。</p><div class="pv"><img class="pic" src="https://drive.google.com/thumbnail?id=1oAsXcTDb_RhWtdJbcnhM-rAiGljWE_04&amp;sz=w1600" alt="" loading="lazy"></div><details><summary>詳細</summary><div class="pv pvd"><div class="emb"><iframe src="https://www.youtube.com/embed/z9UOyGg6QNg?si=r8vkg-v_xdQn6Nka" style="width:min(100%,560px);aspect-ratio:560/315" title="YouTube video player" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe><a class="eml" href="https://www.youtube.com/watch?v=z9UOyGg6QNg" target="_blank" rel="noopener noreferrer">▶ YouTubeで見る</a></div></div><p>世界観により引き込まれるように映像メインの音ハメ。
+片方の軸のアニメーションをプレイヤーの移動によって開始すれば事実上のランダム化ができるが、今回のワールドでは必要なしと判断。</p></details><a class="ul" href="https://cluster.mu/w/75010847-93c5-4393-a3b0-c2f8f599f79a" target="_blank" rel="noopener noreferrer">↗ cluster.mu</a></article><article class="card note" data-j="wmvnco5ekqao"><div class="nm"><span class="gt"><span class="tag ">Music</span></span>2026.10.17<div class="meta"><span>House</span></div></div><h3>"Vibrant waves.." リリース</h3><p>Tunecoreより各サイトで配信開始！</p><div class="pv"><div class="emb"><iframe data-src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2390450886&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true" style="width:min(100%,1000px);height:200px" title="埋め込みコンテンツ" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe></div></div><details><summary>詳細</summary><p>鮮やかな波、なつかしい風は今も曲の中に。</p><div class="emb"><iframe data-src="https://www.youtube.com/embed/8rCGzS6EQ_8?si=2enKj8oqBr-mTRGK" style="width:min(100%,560px);aspect-ratio:560/315" title="YouTube video player" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe><a class="eml" href="https://www.youtube.com/watch?v=8rCGzS6EQ_8" target="_blank" rel="noopener noreferrer">▶ YouTubeで見る</a></div></details><a class="ul" href="https://linkco.re/dgH8qpev?lang=ja" target="_blank" rel="noopener noreferrer">↗ linkco.re</a></article><article class="card note" data-j="wmw7gzbsr87"><div class="nm"><span class="gt"><span class="tag m">3D</span></span>2026.09.13<div class="meta"><span>Puzzle</span></div></div><h3>"Room" Trailer 公開</h3><p>clusterにて公開中のワールド"Room"のトレーラー映像を公開しました。</p><div class="pv"><img class="pic" src="https://drive.google.com/thumbnail?id=1oAsXcTDb_RhWtdJbcnhM-rAiGljWE_04&amp;sz=w1600" alt="" loading="lazy"></div><details><summary>詳細</summary><div class="pv pvd"><div class="emb"><iframe data-src="https://www.youtube.com/embed/z9UOyGg6QNg?si=r8vkg-v_xdQn6Nka" style="width:min(100%,560px);aspect-ratio:560/315" title="YouTube video player" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe><a class="eml" href="https://www.youtube.com/watch?v=z9UOyGg6QNg" target="_blank" rel="noopener noreferrer">▶ YouTubeで見る</a></div></div><p>世界観により引き込まれるように映像メインの音ハメ。
 後半に畳みかけのあるこの曲でかっこよく仕上げました。
 
 Ravel - Une barque sur l'océan</p></details><a class="ul" href="https://cluster.mu/w/767ede48-c2d7-43f4-b75c-1d1828c8c3c9" target="_blank" rel="noopener noreferrer">↗ cluster.mu</a></article></div></div>
     <div id="tpR"></div>
-    <div id="tpe-bmvwg90kodf0" class="tpe"><div class="tpe-b"><div class="emb"><iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A1412138683&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true" style="width:min(100%,1000px);height:166px" title="埋め込みコンテンツ" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe></div></div></div>
-    <div id="tpe-bmvwg885hwqn" class="tpe"><div class="tpe-b"><div class="emb"><iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2235681353&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true" style="width:min(100%,1000px);height:166px" title="埋め込みコンテンツ" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe></div></div></div>
-    <div id="tpe-bmvwgmor8dv9" class="tpe"><div class="tpe-b"><div class="emb"><iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2235679811&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true" style="width:min(100%,1000px);height:166px" title="埋め込みコンテンツ" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe></div></div></div>
+    <div id="tpe-bmvwg90kodf0" class="tpe"><div class="tpe-b"><div class="emb"><iframe data-src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A1412138683&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true" style="width:min(100%,1000px);height:166px" title="埋め込みコンテンツ" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe></div></div></div>
+    <div id="tpe-bmvwg885hwqn" class="tpe"><div class="tpe-b"><div class="emb"><iframe data-src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2235681353&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true" style="width:min(100%,1000px);height:166px" title="埋め込みコンテンツ" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe></div></div></div>
+    <div id="tpe-bmvwgmor8dv9" class="tpe"><div class="tpe-b"><div class="emb"><iframe data-src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2235679811&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true" style="width:min(100%,1000px);height:166px" title="埋め込みコンテンツ" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe></div></div></div>
   </section>
 
   <section class="pg" id="p-works" hidden>
@@ -597,7 +601,7 @@ Ravel - Une barque sur l'océan</p></details><a class="ul" href="https://cluster
 ●制作における工夫
 ステージの全体にわたって、描画範囲外で球体をアニメーション。XY軸それぞれ中途半端な周期でsin波で振動させ、アニメーションのトリガーと接触判定。対応するオブジェクトのアニメーションを再生する。
 周期の最小公倍数を大きくすればするほどパターンのループはしにくくなるが、始点のランダム化ができていないので疑似となる。
-片方の軸のアニメーションをプレイヤーの移動によって開始すれば事実上のランダム化ができるが、今回のワールドでは必要なしと判断。</p></details><a class="ul" href="https://cluster.mu/w/75010847-93c5-4393-a3b0-c2f8f599f79a" target="_blank" rel="noopener noreferrer">↗ cluster.mu</a></article><article class="card note" data-j="wmvnco5ekqao"><div class="nm"><span class="gt"><span class="tag ">Music</span></span>2026.10.17<div class="meta"><span>House</span></div></div><h3>"Vibrant waves.." リリース</h3><p>Tunecoreより各サイトで配信開始！</p><div class="pv"><div class="emb"><iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2390450886&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true" style="width:min(100%,1000px);height:200px" title="埋め込みコンテンツ" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe></div></div><details><summary>詳細</summary><p>鮮やかな波、なつかしい風は今も曲の中に。</p><div class="emb"><iframe src="https://www.youtube.com/embed/8rCGzS6EQ_8?si=2enKj8oqBr-mTRGK" style="width:min(100%,560px);aspect-ratio:560/315" title="YouTube video player" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe><a class="eml" href="https://www.youtube.com/watch?v=8rCGzS6EQ_8" target="_blank" rel="noopener noreferrer">▶ YouTubeで見る</a></div></details><a class="ul" href="https://linkco.re/dgH8qpev?lang=ja" target="_blank" rel="noopener noreferrer">↗ linkco.re</a></article><article class="card note" data-j="wmw7gzbsr87"><div class="nm"><span class="gt"><span class="tag m">3D</span></span>2026.09.13<div class="meta"><span>Puzzle</span></div></div><h3>"Room" Trailer 公開</h3><p>clusterにて公開中のワールド"Room"のトレーラー映像を公開しました。</p><div class="pv"><img class="pic" src="https://drive.google.com/thumbnail?id=1oAsXcTDb_RhWtdJbcnhM-rAiGljWE_04&amp;sz=w1600" alt="" loading="lazy"></div><details><summary>詳細</summary><div class="pv pvd"><div class="emb"><iframe src="https://www.youtube.com/embed/z9UOyGg6QNg?si=r8vkg-v_xdQn6Nka" style="width:min(100%,560px);aspect-ratio:560/315" title="YouTube video player" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe><a class="eml" href="https://www.youtube.com/watch?v=z9UOyGg6QNg" target="_blank" rel="noopener noreferrer">▶ YouTubeで見る</a></div></div><p>世界観により引き込まれるように映像メインの音ハメ。
+片方の軸のアニメーションをプレイヤーの移動によって開始すれば事実上のランダム化ができるが、今回のワールドでは必要なしと判断。</p></details><a class="ul" href="https://cluster.mu/w/75010847-93c5-4393-a3b0-c2f8f599f79a" target="_blank" rel="noopener noreferrer">↗ cluster.mu</a></article><article class="card note" data-j="wmvnco5ekqao"><div class="nm"><span class="gt"><span class="tag ">Music</span></span>2026.10.17<div class="meta"><span>House</span></div></div><h3>"Vibrant waves.." リリース</h3><p>Tunecoreより各サイトで配信開始！</p><div class="pv"><div class="emb"><iframe data-src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2390450886&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true" style="width:min(100%,1000px);height:200px" title="埋め込みコンテンツ" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe></div></div><details><summary>詳細</summary><p>鮮やかな波、なつかしい風は今も曲の中に。</p><div class="emb"><iframe data-src="https://www.youtube.com/embed/8rCGzS6EQ_8?si=2enKj8oqBr-mTRGK" style="width:min(100%,560px);aspect-ratio:560/315" title="YouTube video player" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe><a class="eml" href="https://www.youtube.com/watch?v=8rCGzS6EQ_8" target="_blank" rel="noopener noreferrer">▶ YouTubeで見る</a></div></details><a class="ul" href="https://linkco.re/dgH8qpev?lang=ja" target="_blank" rel="noopener noreferrer">↗ linkco.re</a></article><article class="card note" data-j="wmw7gzbsr87"><div class="nm"><span class="gt"><span class="tag m">3D</span></span>2026.09.13<div class="meta"><span>Puzzle</span></div></div><h3>"Room" Trailer 公開</h3><p>clusterにて公開中のワールド"Room"のトレーラー映像を公開しました。</p><div class="pv"><img class="pic" src="https://drive.google.com/thumbnail?id=1oAsXcTDb_RhWtdJbcnhM-rAiGljWE_04&amp;sz=w1600" alt="" loading="lazy"></div><details><summary>詳細</summary><div class="pv pvd"><div class="emb"><iframe data-src="https://www.youtube.com/embed/z9UOyGg6QNg?si=r8vkg-v_xdQn6Nka" style="width:min(100%,560px);aspect-ratio:560/315" title="YouTube video player" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe><a class="eml" href="https://www.youtube.com/watch?v=z9UOyGg6QNg" target="_blank" rel="noopener noreferrer">▶ YouTubeで見る</a></div></div><p>世界観により引き込まれるように映像メインの音ハメ。
 後半に畳みかけのあるこの曲でかっこよく仕上げました。
 
 Ravel - Une barque sur l'océan</p></details><a class="ul" href="https://cluster.mu/w/767ede48-c2d7-43f4-b75c-1d1828c8c3c9" target="_blank" rel="noopener noreferrer">↗ cluster.mu</a></article><article class="card note" data-j="wmvrigcargm5"><div class="nm"><span class="gt"><span class="tag m">3D</span></span>2026.03.20</div><h3>ウィークリー達成！ "Liminal Spaces" The Frontrooms</h3><p>公開中のワールドがcluster公式 Creators Guideで紹介されました！</p><details><summary>詳細</summary><p>2026.03.14 - 03.20 WEEKLY WORLD RANKING
@@ -613,11 +617,11 @@ The Backroomsを対比とした現実世界の呼称。
 
 ●制作における工夫
 複数ワールドへのワープを細かいタイル状に並べ、prefab化してさらに不規則に回転させてタイル状に並べている。タイルが細かいためプレイヤーの当たり判定はどこに接触するか予測できずデバッグ/分析ができないため、事実上のランダム化となる。
-新規ワールドを作成したときには大元のprefabのワープ先を差し替えれば不規則に散らばるため、システムの維持が可能。</p></details><a class="ul" href="https://cluster.mu/w/ca12d4fa-1133-47df-bc72-afb032ea4158" target="_blank" rel="noopener noreferrer">↗ cluster.mu</a></article><article class="card note" data-j="wmvnyh5deqbq"><div class="nm"><span class="gt"><span class="tag ">Music</span></span>2025.12.24<div class="meta"><span>Soundtrack</span></div></div><h3>新アルバム "Crystallization" 公開</h3><p>Youtube、Soundcloudにてアルバム"Crystallization"公開</p><div class="pv"><div class="emb"><iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2235676889&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true" style="width:min(100%,1000px);height:200px" title="埋め込みコンテンツ" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe></div><div class="emb"><iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2235679811&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true" style="width:min(100%,1000px);height:200px" title="埋め込みコンテンツ" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe></div><div class="emb"><iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2235681353&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true" style="width:min(100%,1000px);height:200px" title="埋め込みコンテンツ" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe></div><div class="emb"><iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2235683000&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true" style="width:min(100%,1000px);height:200px" title="埋め込みコンテンツ" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe></div></div><details><summary>詳細</summary><p>アクションゲームBGM風サウンドトラックです。
+新規ワールドを作成したときには大元のprefabのワープ先を差し替えれば不規則に散らばるため、システムの維持が可能。</p></details><a class="ul" href="https://cluster.mu/w/ca12d4fa-1133-47df-bc72-afb032ea4158" target="_blank" rel="noopener noreferrer">↗ cluster.mu</a></article><article class="card note" data-j="wmvnyh5deqbq"><div class="nm"><span class="gt"><span class="tag ">Music</span></span>2025.12.24<div class="meta"><span>Soundtrack</span></div></div><h3>新アルバム "Crystallization" 公開</h3><p>Youtube、Soundcloudにてアルバム"Crystallization"公開</p><div class="pv"><div class="emb"><iframe data-src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2235676889&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true" style="width:min(100%,1000px);height:200px" title="埋め込みコンテンツ" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe></div><div class="emb"><iframe data-src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2235679811&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true" style="width:min(100%,1000px);height:200px" title="埋め込みコンテンツ" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe></div><div class="emb"><iframe data-src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2235681353&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true" style="width:min(100%,1000px);height:200px" title="埋め込みコンテンツ" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe></div><div class="emb"><iframe data-src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2235683000&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true" style="width:min(100%,1000px);height:200px" title="埋め込みコンテンツ" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe></div></div><details><summary>詳細</summary><p>アクションゲームBGM風サウンドトラックです。
 結晶化していく文明と宇宙的な恐怖、月の都の表現。
 理性のない者、それを操る者。言葉ではないもので統率をとっている。
 
-YoutubeとSoundcloudからのみの配信です。</p><div class="emb"><iframe src="https://www.youtube.com/embed/Tpzuw6h6ugY?si=D9wk_CSjvZVHDAP6" style="width:min(100%,560px);aspect-ratio:560/315" title="YouTube video player" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe><a class="eml" href="https://www.youtube.com/watch?v=Tpzuw6h6ugY" target="_blank" rel="noopener noreferrer">▶ YouTubeで見る</a></div><div class="emb"><iframe src="https://www.youtube.com/embed/CbfqqrZEfro?si=RNq4e9LwTMwo0Oqj" style="width:min(100%,560px);aspect-ratio:560/315" title="YouTube video player" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe><a class="eml" href="https://www.youtube.com/watch?v=CbfqqrZEfro" target="_blank" rel="noopener noreferrer">▶ YouTubeで見る</a></div><div class="emb"><iframe src="https://www.youtube.com/embed/Mj-WwWVcNxc?si=nSGE_75oMgLQnGP8" style="width:min(100%,560px);aspect-ratio:560/315" title="YouTube video player" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe><a class="eml" href="https://www.youtube.com/watch?v=Mj-WwWVcNxc" target="_blank" rel="noopener noreferrer">▶ YouTubeで見る</a></div><div class="emb"><iframe src="https://www.youtube.com/embed/w4WI6uFoCJY?si=YQpE7wqwt_x9O7Op" style="width:min(100%,560px);aspect-ratio:560/315" title="YouTube video player" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe><a class="eml" href="https://www.youtube.com/watch?v=w4WI6uFoCJY" target="_blank" rel="noopener noreferrer">▶ YouTubeで見る</a></div></details><a class="ul" href="https://www.youtube.com/playlist?list=PLsu8SwN1586hYimG-qDvL5xs3pt4T0bLt" target="_blank" rel="noopener noreferrer">↗ youtube.com</a></article><article class="card note" data-j="wmvntphejbvf"><div class="nm"><span class="gt"><span class="tag m">3D</span></span>2025.10.16<div class="meta"><span>Liminal</span></div></div><h3>新ワールド "Liminal Spaces" The void 公開</h3><p>clusterにて新ワールドを公開しました。</p><details><summary>詳細</summary><p>"The void"
+YoutubeとSoundcloudからのみの配信です。</p><div class="emb"><iframe data-src="https://www.youtube.com/embed/Tpzuw6h6ugY?si=D9wk_CSjvZVHDAP6" style="width:min(100%,560px);aspect-ratio:560/315" title="YouTube video player" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe><a class="eml" href="https://www.youtube.com/watch?v=Tpzuw6h6ugY" target="_blank" rel="noopener noreferrer">▶ YouTubeで見る</a></div><div class="emb"><iframe data-src="https://www.youtube.com/embed/CbfqqrZEfro?si=RNq4e9LwTMwo0Oqj" style="width:min(100%,560px);aspect-ratio:560/315" title="YouTube video player" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe><a class="eml" href="https://www.youtube.com/watch?v=CbfqqrZEfro" target="_blank" rel="noopener noreferrer">▶ YouTubeで見る</a></div><div class="emb"><iframe data-src="https://www.youtube.com/embed/Mj-WwWVcNxc?si=nSGE_75oMgLQnGP8" style="width:min(100%,560px);aspect-ratio:560/315" title="YouTube video player" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe><a class="eml" href="https://www.youtube.com/watch?v=Mj-WwWVcNxc" target="_blank" rel="noopener noreferrer">▶ YouTubeで見る</a></div><div class="emb"><iframe data-src="https://www.youtube.com/embed/w4WI6uFoCJY?si=YQpE7wqwt_x9O7Op" style="width:min(100%,560px);aspect-ratio:560/315" title="YouTube video player" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe><a class="eml" href="https://www.youtube.com/watch?v=w4WI6uFoCJY" target="_blank" rel="noopener noreferrer">▶ YouTubeで見る</a></div></details><a class="ul" href="https://www.youtube.com/playlist?list=PLsu8SwN1586hYimG-qDvL5xs3pt4T0bLt" target="_blank" rel="noopener noreferrer">↗ youtube.com</a></article><article class="card note" data-j="wmvntphejbvf"><div class="nm"><span class="gt"><span class="tag m">3D</span></span>2025.10.16<div class="meta"><span>Liminal</span></div></div><h3>新ワールド "Liminal Spaces" The void 公開</h3><p>clusterにて新ワールドを公開しました。</p><details><summary>詳細</summary><p>"The void"
 視覚・聴覚的に何も感じられない空間。空間というのも適切ではないかもしれない。
 
 終着点。
@@ -674,9 +678,9 @@ a (アルファベットの初め)
 
 Ambient Occulusion、Lightmapを習得。</p></details><a class="ul" href="https://cluster.mu/w/5bd1a77d-f7af-4ab0-a56d-df417665c58d" target="_blank" rel="noopener noreferrer">↗ cluster.mu</a></article><article class="card note" data-j="wmvrq6zbhxgx"><div class="nm"><span class="gt"><span class="tag m">3D</span></span>2023.01.21<div class="meta"><span>Liminal</span></div></div><h3>新ワールド "The Backrooms_beta" 公開</h3><p>clusterにて新ワールドを公開しました。</p><div class="pv"><img class="pic" src="https://drive.google.com/thumbnail?id=1pI8V7_cDjJ6UmIOr9Xj16WBujF_vDVLL&amp;sz=w1600" alt="" loading="lazy"></div><details><summary>詳細</summary><p>ランダムな地形なら簡単に作れるのかという検証。
 
-Post Processingを習得。</p></details><a class="ul" href="https://cluster.mu/w/3e749f32-f98e-4c64-88d7-2a6508653981" target="_blank" rel="noopener noreferrer">↗ cluster.mu</a></article><article class="card note" data-j="wmvn7vhbzgh"><div class="nm"><span class="gt"><span class="tag ">Music</span></span>2022.12.29<div class="meta"><span>House</span></div></div><h3>"Winter holidays" リリース</h3><p>Tunecoreより各サイトで配信開始！</p><div class="pv"><div class="emb"><iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A1412138683&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true" style="width:min(100%,1000px);height:200px" title="埋め込みコンテンツ" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe></div></div><details><summary>詳細</summary><p>えいえいお！</p><div class="emb"><iframe src="https://www.youtube.com/embed/hTnW-fxTGPM?si=N17Ul6a-36QD2Bkp" style="width:min(100%,560px);aspect-ratio:560/315" title="YouTube video player" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe><a class="eml" href="https://www.youtube.com/watch?v=hTnW-fxTGPM" target="_blank" rel="noopener noreferrer">▶ YouTubeで見る</a></div></details><a class="ul" href="https://linkco.re/8N16vRuf?lang=ja" target="_blank" rel="noopener noreferrer">↗ linkco.re</a></article><article class="card note" data-j="wmvmgjfsoi5h"><div class="nm"><span class="gt"><span class="tag ">Music</span></span>2022.05.22<div class="meta"><span>Future pop</span></div></div><h3>"Magic of the sky (feat. fairyssimo)" リリース</h3><p>Tunecoreより各サイトで配信開始！</p><div class="pv"><div class="emb"><iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A1287616318&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true" style="width:min(100%,1000px);height:200px" title="埋め込みコンテンツ" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe></div></div><details><summary>詳細</summary><p>誕生日プレゼントに作ったボーカル曲です。</p><div class="emb"><iframe src="https://www.youtube.com/embed/W5N0ddWwXXw?si=QzK7kVUbvP4-sC4e" style="width:min(100%,560px);aspect-ratio:560/315" title="YouTube video player" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe><a class="eml" href="https://www.youtube.com/watch?v=W5N0ddWwXXw" target="_blank" rel="noopener noreferrer">▶ YouTubeで見る</a></div></details><a class="ul" href="https://linkco.re/4qvHqY3t?lang=ja" target="_blank" rel="noopener noreferrer">↗ linkco.re</a></article><article class="card note" data-j="wmvd05awp45n"><div class="nm"><span class="gt"><span class="tag ">Music</span></span>2021.01.24<div class="meta"><span>Chill</span></div></div><h3>"Orange peel gummy" リリース</h3><p>Tunecoreより各サイトで配信開始！</p><div class="pv"><div class="emb"><iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A971888851&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true" style="width:min(100%,1000px);height:200px" title="埋め込みコンテンツ" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe></div></div><details><summary>詳細</summary><p>オレンジピールで作ったグミの曲です。
+Post Processingを習得。</p></details><a class="ul" href="https://cluster.mu/w/3e749f32-f98e-4c64-88d7-2a6508653981" target="_blank" rel="noopener noreferrer">↗ cluster.mu</a></article><article class="card note" data-j="wmvn7vhbzgh"><div class="nm"><span class="gt"><span class="tag ">Music</span></span>2022.12.29<div class="meta"><span>House</span></div></div><h3>"Winter holidays" リリース</h3><p>Tunecoreより各サイトで配信開始！</p><div class="pv"><div class="emb"><iframe data-src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A1412138683&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true" style="width:min(100%,1000px);height:200px" title="埋め込みコンテンツ" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe></div></div><details><summary>詳細</summary><p>えいえいお！</p><div class="emb"><iframe data-src="https://www.youtube.com/embed/hTnW-fxTGPM?si=N17Ul6a-36QD2Bkp" style="width:min(100%,560px);aspect-ratio:560/315" title="YouTube video player" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe><a class="eml" href="https://www.youtube.com/watch?v=hTnW-fxTGPM" target="_blank" rel="noopener noreferrer">▶ YouTubeで見る</a></div></details><a class="ul" href="https://linkco.re/8N16vRuf?lang=ja" target="_blank" rel="noopener noreferrer">↗ linkco.re</a></article><article class="card note" data-j="wmvmgjfsoi5h"><div class="nm"><span class="gt"><span class="tag ">Music</span></span>2022.05.22<div class="meta"><span>Future pop</span></div></div><h3>"Magic of the sky (feat. fairyssimo)" リリース</h3><p>Tunecoreより各サイトで配信開始！</p><div class="pv"><div class="emb"><iframe data-src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A1287616318&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true" style="width:min(100%,1000px);height:200px" title="埋め込みコンテンツ" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe></div></div><details><summary>詳細</summary><p>誕生日プレゼントに作ったボーカル曲です。</p><div class="emb"><iframe data-src="https://www.youtube.com/embed/W5N0ddWwXXw?si=QzK7kVUbvP4-sC4e" style="width:min(100%,560px);aspect-ratio:560/315" title="YouTube video player" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe><a class="eml" href="https://www.youtube.com/watch?v=W5N0ddWwXXw" target="_blank" rel="noopener noreferrer">▶ YouTubeで見る</a></div></details><a class="ul" href="https://linkco.re/4qvHqY3t?lang=ja" target="_blank" rel="noopener noreferrer">↗ linkco.re</a></article><article class="card note" data-j="wmvd05awp45n"><div class="nm"><span class="gt"><span class="tag ">Music</span></span>2021.01.24<div class="meta"><span>Chill</span></div></div><h3>"Orange peel gummy" リリース</h3><p>Tunecoreより各サイトで配信開始！</p><div class="pv"><div class="emb"><iframe data-src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A971888851&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true" style="width:min(100%,1000px);height:200px" title="埋め込みコンテンツ" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe></div></div><details><summary>詳細</summary><p>オレンジピールで作ったグミの曲です。
 純粋なChillでオーガニック。
-MVもあります。</p><div class="emb"><iframe src="https://www.youtube.com/embed/iuCS_lzcQik?si=WMZbysjwH59kF6bR" style="width:min(100%,560px);aspect-ratio:560/315" title="YouTube video player" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe><a class="eml" href="https://www.youtube.com/watch?v=iuCS_lzcQik" target="_blank" rel="noopener noreferrer">▶ YouTubeで見る</a></div></details><a class="ul" href="https://linkco.re/TEG6Npuq?lang=ja" target="_blank" rel="noopener noreferrer">↗ linkco.re</a></article></div>
+MVもあります。</p><div class="emb"><iframe data-src="https://www.youtube.com/embed/iuCS_lzcQik?si=WMZbysjwH59kF6bR" style="width:min(100%,560px);aspect-ratio:560/315" title="YouTube video player" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; clipboard-write" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin"></iframe><a class="eml" href="https://www.youtube.com/watch?v=iuCS_lzcQik" target="_blank" rel="noopener noreferrer">▶ YouTubeで見る</a></div></details><a class="ul" href="https://linkco.re/TEG6Npuq?lang=ja" target="_blank" rel="noopener noreferrer">↗ linkco.re</a></article></div>
     <div class="empty" id="empty">該当する作品はまだありません。</div>
   </section>
 
@@ -823,16 +827,59 @@ Liminal Spacesシリーズでは配布アセットを使用せず、モデルは
     bg.appendChild(f);
   }
 
+  // Aeroの泡はカーソルを避ける
+  (function(){
+    var root=document.documentElement,bs=[].slice.call(document.querySelectorAll('.star.fz')),st=bs.map(function(){return {x:0,y:0};}),px=-1e4,py=-1e4,raf=0;
+    function clear(){bs.forEach(function(b,i){st[i].x=st[i].y=0;b.style.marginLeft='';b.style.marginBottom='';});}
+    function step(){
+      raf=0;
+      if(root.getAttribute('data-theme')!=='aero'||!MO()){clear();return;}
+      var rc=bs.map(function(b){return b.getBoundingClientRect();}),busy=false;
+      bs.forEach(function(b,i){
+        var r=rc[i],s=st[i],cx=r.left+r.width/2-s.x,cy=r.top+r.height/2-s.y,dx=cx-px,dy=cy-py,d=Math.hypot(dx,dy),R=75,tx=0,ty=0;
+        if(d<R&&d>.5){var f=1-d/R;f=f*f*110;tx=dx/d*f;ty=dy/d*f;}
+        s.x+=(tx-s.x)*.14;s.y+=(ty-s.y)*.14;
+        if(Math.abs(s.x)<.05&&tx===0)s.x=0;if(Math.abs(s.y)<.05&&ty===0)s.y=0;
+        if(s.x||s.y||tx||ty)busy=true;
+        b.style.marginLeft=s.x?s.x.toFixed(1)+'px':'';b.style.marginBottom=s.y?(-s.y).toFixed(1)+'px':'';
+      });
+      if(busy)raf=requestAnimationFrame(step);
+    }
+    addEventListener('pointermove',function(e){px=e.clientX;py=e.clientY;if(!raf&&root.getAttribute('data-theme')==='aero')raf=requestAnimationFrame(step);},{passive:true});
+    document.addEventListener('pointerleave',function(){px=py=-1e4;if(!raf)raf=requestAnimationFrame(step);});
+  })();
+
   // ===== 共通ヘルパー =====
   function qs(s){return document.querySelector(s);}
   function byId(i){return document.getElementById(i);}
   function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/'/g,'&#39;').replace(/"/g,'&quot;');}
 
   var curF='all',curP='top';
+  function MO(){var m=document.documentElement.getAttribute('data-motion')||'auto';if(m==='off')return false;if(m==='on')return true;return !(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);}
+  var fT=0,fPh=0,fNext='all';
+  function fSwitch(nf){
+    var wl=byId('wkList');
+    [].forEach.call(byId('filters').querySelectorAll('.fbtn'),function(x){x.setAttribute('aria-pressed',String(x.dataset.f===nf));});
+    fNext=nf;
+    wl.style.minHeight=wl.offsetHeight+'px';
+    if(!wl.animate||!MO()){wl.style.minHeight='';curF=nf;R.filters();R.works();return;}
+    if(fPh===1)return;                       // 消えている途中なら、行き先だけ差し替える
+    if(fPh===0&&nf===curF)return;
+    var old=[].slice.call(wl.querySelectorAll('.card'));
+    old.forEach(function(c){var o=getComputedStyle(c).opacity;c.getAnimations().forEach(function(a){a.cancel();});
+      c.animate([{opacity:o,transform:'none'},{opacity:0,transform:'scale(.94) translateY(8px)'}],{duration:170,easing:'ease-in',fill:'forwards'});});
+    clearTimeout(fT);fPh=1;
+    fT=setTimeout(function(){
+      curF=fNext;R.filters();R.works();fPh=2;
+      var cs=[].slice.call(wl.querySelectorAll('.card'));
+      cs.forEach(function(c,i){c.animate([{opacity:0,transform:'translateY(16px) scale(.96)'},{opacity:1,transform:'none'}],{duration:480,delay:Math.min(i,10)*38,easing:'cubic-bezier(.2,.8,.2,1)',fill:'backwards'});});
+      fT=setTimeout(function(){fPh=0;wl.style.minHeight='';},480+Math.min(cs.length,10)*38);
+    },175);
+  }
   byId('filters').addEventListener('click',function(e){
     var b=e.target.closest('.fbtn');if(!b)return;
-    curF=b.dataset.f;R.filters();R.works();
-    var nb=byId('filters').querySelector("[data-f='"+curF+"']");if(nb&&nb.scrollIntoView)nb.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
+    fSwitch(b.dataset.f);
+    var fb=byId('filters'),nb=fb.querySelector("[data-f='"+b.dataset.f+"']");if(nb&&fb.scrollWidth>fb.clientWidth+2&&fb.scrollTo)fb.scrollTo({left:nb.offsetLeft-(fb.clientWidth-nb.offsetWidth)/2,behavior:'smooth'});
   });
 
   // バーの端にカーソルを寄せると横スクロール
@@ -885,7 +932,29 @@ Liminal Spacesシリーズでは配布アセットを使用せず、モデルは
   // ページ切り替え
   var W=document.querySelectorAll('.hero');
   function pageOk(p){return p==='top'||D.pages.some(function(x){return x.id===p&&x.on!=='0';});}
-  function showPage(p,scroll){
+  var pT=0,pPh=0,pNext='top',pDir=0;
+  function switchPage(p,scroll,dir){
+    var cs=document.getElementById('p-'+curP);
+    if(!MO()||!cs||!cs.animate||!pageOk(p)){showPage(p,scroll,0);return;}
+    pNext=p;pDir=dir||0;
+    [].forEach.call(document.querySelectorAll('#nav .fbtn'),function(b){b.setAttribute('aria-pressed',String(b.dataset.p===p));});
+    if(pPh===1)return;
+    if(pPh===0&&p===curP)return;
+    cs.getAnimations().forEach(function(a){a.cancel();});
+    cs.animate([{opacity:1,transform:'none'},{opacity:0,transform:'translate('+(-pDir*28)+'px,'+(pDir?0:8)+'px)'}],{duration:170,easing:'ease-in',fill:'forwards'});
+    clearTimeout(pT);pPh=1;
+    pT=setTimeout(function(){
+      cs.getAnimations().forEach(function(a){a.cancel();});
+      showPage(pNext,scroll,0);pPh=2;
+      var ns=document.getElementById('p-'+curP);
+      var all=[].slice.call(ns.querySelectorAll('.pg-h,.tph,.card,.li,.hero,.tpe,.sl,.filters,.a-gen'));
+      all=all.filter(function(x){return !all.some(function(y){return y!==x&&y.contains(x);});});
+      if(!all.length)all=[ns];
+      all.forEach(function(c,i){c.animate([{opacity:0,transform:'translate('+(pDir*30)+'px,'+(pDir?0:16)+'px) scale(.98)'},{opacity:1,transform:'none'}],{duration:480,delay:Math.min(i,10)*38,easing:'cubic-bezier(.2,.8,.2,1)',fill:'backwards'});});
+      pT=setTimeout(function(){pPh=0;},480+Math.min(all.length,10)*38);
+    },175);
+  }
+  function showPage(p,scroll,dir){
     if(!pageOk(p))p='top';
     curP=p;
     [].forEach.call(document.querySelectorAll('#nav .fbtn'),function(b){b.setAttribute('aria-pressed',String(b.dataset.p===p));});
@@ -897,8 +966,41 @@ Liminal Spacesシリーズでは配布アセットを使用せず、モデルは
     if(p==='about'){requestAnimationFrame(function(){requestAnimationFrame(function(){[].forEach.call(bars,function(i){i.style.width=i.dataset.v+'%';});});});}
     if(scroll)window.scrollTo({top:0,behavior:'smooth'});
   }
-  byId('nav').addEventListener('click',function(e){var b=e.target.closest('.fbtn');if(b)showPage(b.dataset.p,true);});
-  byId('p-top').addEventListener('click',function(e){var b=e.target.closest('[data-go]');if(b)showPage(b.dataset.go,true);});
+  byId('nav').addEventListener('click',function(e){var b=e.target.closest('.fbtn');if(b)switchPage(b.dataset.p,true);});
+  // 詳細(details)をなめらかに開閉
+  document.addEventListener('click',function(e){
+    var sm=e.target.closest&&e.target.closest('.note details>summary');
+    if(!sm||!MO())return;
+    var d=sm.parentNode;if(!d.animate)return;
+    e.preventDefault();
+    if(d._an){try{d._an.cancel();}catch(x){}d._an=null;d.style.overflow='';}
+    var h0=d.offsetHeight,opening=!d.open;
+    if(opening)d.open=true;
+    var h1=opening?d.offsetHeight:sm.offsetHeight;
+    d.style.overflow='hidden';
+    var a=d._an=d.animate([{height:h0+'px'},{height:h1+'px'}],{duration:340,easing:'cubic-bezier(.2,.8,.2,1)'});
+    var fin=function(){if(d._an!==a)return;d._an=null;d.style.overflow='';if(!opening)d.open=false;};
+    a.onfinish=fin;a.oncancel=function(){};
+  });
+  // スワイプ(左右)でページ切り替え
+  (function(){
+    var x0=0,y0=0,t0=0,ok=false;
+    function skip(el){return !!(el&&el.closest&&el.closest('input,textarea,select,iframe,pre,.filters,#nav,.sld,.slides,#ed,.ed,[contenteditable],.pics,details[open] .pv'));}
+    document.addEventListener('touchstart',function(e){
+      if(e.touches.length!==1){ok=false;return;}
+      var t=e.touches[0];x0=t.clientX;y0=t.clientY;t0=Date.now();ok=!skip(e.target);
+    },{passive:true});
+    document.addEventListener('touchend',function(e){
+      if(!ok)return;ok=false;
+      var t=e.changedTouches[0],dx=t.clientX-x0,dy=t.clientY-y0;
+      if(Date.now()-t0>700||Math.abs(dx)<70||Math.abs(dx)<Math.abs(dy)*1.6)return;
+      var ps=[].map.call(document.querySelectorAll('#nav .fbtn'),function(b){return b.dataset.p;});
+      var i=ps.indexOf(curP);if(i<0)return;
+      var n=i+(dx<0?1:-1);if(n<0||n>=ps.length)return;
+      switchPage(ps[n],true,dx<0?1:-1);
+    },{passive:true});
+  })();
+  byId('p-top').addEventListener('click',function(e){var b=e.target.closest('[data-go]');if(b)switchPage(b.dataset.go,true);});
   byId('mailBtn').addEventListener('click',function(){
     var b=this,m=(D.site&&D.site.mail)||'';
     try{navigator.clipboard.writeText(m).then(function(){b.textContent='コピーしました';},function(){});}catch(e){}
@@ -926,7 +1028,12 @@ Liminal Spacesシリーズでは配布アセットを使用せず、モデルは
     ths.forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.t===t));});
     if(save){try{localStorage.setItem('mw-theme',t);}catch(e){}}
   }
-  ths.forEach(function(b){b.addEventListener('click',function(){setTheme(b.dataset.t,true);});});
+  ths.forEach(function(b){b.addEventListener('click',function(){
+    var t=b.dataset.t;if(t===root.getAttribute('data-theme'))return;
+    if(document.startViewTransition&&MO()){try{document.startViewTransition(function(){setTheme(t,true);});return;}catch(e){}}
+    if(MO()){root.classList.add('tt');setTheme(t,true);setTimeout(function(){root.classList.remove('tt');},650);}
+    else setTheme(t,true);
+  });});
   var saved=null;try{saved=localStorage.getItem('mw-theme');}catch(e){}
   setTheme(/^(miracle|ps1|aero)$/.test(saved)?saved:'miracle',false);
 
@@ -1283,7 +1390,7 @@ Liminal Spacesシリーズでは配布アセットを使用せず、モデルは
     if(yv&&yv[1]==='videoseries'&&u.searchParams.get('list')){u=new URL('https://www.youtube.com/embed?listType=playlist&list='+encodeURIComponent(u.searchParams.get('list')));}
     var w=Math.max(100,Math.min(1000,parseInt(a.width,10)||560)),h=Math.max(60,Math.min(900,parseInt(a.height,10)||315));
     var st=rule.v?'width:min(100%,'+w+'px);aspect-ratio:'+w+'/'+h:'width:min(100%,'+w+'px);height:'+h+'px';
-    return "<div class='emb'><iframe src='"+esc(u.href)+"' style='"+st+"' title='"+esc(a.title||'埋め込みコンテンツ')+"' loading='lazy' allow='autoplay; encrypted-media; picture-in-picture; clipboard-write' allowfullscreen referrerpolicy='strict-origin-when-cross-origin'></iframe>"+link+"</div>";
+    return "<div class='emb'><iframe data-src='"+esc(u.href)+"' style='"+st+"' title='"+esc(a.title||'埋め込みコンテンツ')+"' loading='lazy' allow='autoplay; encrypted-media; picture-in-picture; clipboard-write' allowfullscreen referrerpolicy='strict-origin-when-cross-origin'></iframe>"+link+"</div>";
   }
   function para(t){
     t=t.replace(/^\s*\n+|\n+\s*$/g,'');if(!t.trim())return '';
@@ -1296,6 +1403,13 @@ Liminal Spacesシリーズでは配布アセットを使用せず、モデルは
     while((m=re.exec(t))){out+=para(t.slice(last,m.index))+(embed(m[0])||'');last=m.index+m[0].length;}
     return out+para(t.slice(last));
   }
+  // iframe：画面の近くに来るまで読み込まない
+  (function(){
+    var seen=new WeakSet(),io=window.IntersectionObserver&&new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;var f=e.target;io.unobserve(f);if(f.dataset.src&&!f.getAttribute('src'))f.src=f.dataset.src;});},{rootMargin:'300px 0px'});
+    function scan(){[].forEach.call(document.querySelectorAll('iframe[data-src]:not([src])'),function(f){if(seen.has(f))return;seen.add(f);if(io)io.observe(f);else f.src=f.dataset.src;});}
+    if(window.MutationObserver)new MutationObserver(scan).observe(document.documentElement,{childList:true,subtree:true});
+    document.addEventListener('DOMContentLoaded',scan);scan();
+  })();
   // ===== サイト内ジャンプ：[[ページ/項目]] か #ページ/項目 =====
   function jpage(q){q=String(q||'').trim().toLowerCase();var r=null;D.pages.forEach(function(p){if(!r&&(String(p.id).toLowerCase()===q||String(p.label||'').trim().toLowerCase()===q))r=p;});return r;}
   function jres(tok){
@@ -1320,9 +1434,11 @@ Liminal Spacesシリーズでは配布アセットを使用せず、モデルは
   function jumpTo(tok){
     tok=String(tok||'');var j=jres(/^(#|\[\[)/.test(tok)?tok:'#'+tok);
     if(!j||!pageOk(j.p.id))return false;
-    showPage(j.p.id,false);
+    var same=j.p.id===curP,anim=!same&&MO()&&byId('p-'+curP)&&byId('p-'+curP).animate;
+    if(anim)switchPage(j.p.id,false,0);else showPage(j.p.id,false);
     var el=null,mo=document.documentElement.getAttribute('data-motion')||'auto';
     var beh=(mo==='off'||(mo!=='on'&&window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches))?'auto':'smooth';
+    function go(){
     function find(){el=j.id?document.querySelector('#p-'+j.p.id+' [data-j="'+j.id+'"]'):null;}
     find();
     if(!el&&j.id&&j.p.id==='works'){curF='all';R.filters();R.works();find();}
@@ -1331,8 +1447,9 @@ Liminal Spacesシリーズでは配布アセットを使用せず、モデルは
       el.scrollIntoView({behavior:beh,block:'start'});
       el.classList.remove('jh');void el.offsetWidth;el.classList.add('jh');
       clearTimeout(jhT);jhT=setTimeout(function(){el.classList.remove('jh');},2400);
-      setTimeout(function(){var y=el.getBoundingClientRect().top;if(y<0||y>window.innerHeight*.5)el.scrollIntoView({block:'start'});},650);
     }else window.scrollTo({top:0,behavior:beh});
+    }
+    if(anim)setTimeout(go,230);else go();
     return true;
   }
   document.addEventListener('click',function(e){
@@ -1569,7 +1686,7 @@ Liminal Spacesシリーズでは配布アセットを使用せず、モデルは
     edIn.innerHTML="<div class='eh'><b>サイト内容の編集</b><button data-a='close'>閉じる</button></div><div class='et'>"+tabs+"</div>"+
       "<div class='eb'>"+body+"</div>"+
       "<div class='ef"+(UI.min?' min':'')+"'><div class='efh'><small id='eMsg'>変更はこのブラウザに自動保存されます</small><button data-a='efmin'>"+(UI.min?'▲ ひらく':'▼ とじる')+"</button></div>"+
-      "<div class='efb'><textarea id='eIO' rows='5' hidden></textarea><div class='efbt'><button data-a='exp'>JSON書き出し</button><button data-a='imp'>JSON読み込み</button><button data-a='apply' id='eAp' hidden>反映</button><button data-a='rst'>初期化</button></div></div></div>";
+      "<div class='efb'><textarea id='eIO' rows='5' hidden></textarea><div class='efbt'><button data-a='exp'>JSON書き出し</button><button data-a='imp'>JSON読み込み</button><button data-a='file'>ファイルから読込</button><button data-a='html'>HTML書き出し</button><button data-a='apply' id='eAp' hidden>反映</button><button data-a='rst'>初期化</button></div></div></div>";
     edIn.querySelector('.eb').scrollTop=y;
     var et=edIn.querySelector('.et');if(et){et.scrollLeft=px;edgeScroll(et);}
     var act=edIn.querySelector('.et .on');if(act&&act.scrollIntoView)act.scrollIntoView({inline:'nearest',block:'nearest'});
@@ -1668,9 +1785,70 @@ Liminal Spacesシリーズでは配布アセットを使用せず、モデルは
     }
     else if(a==='exp'){efShow();io.hidden=false;byId('eAp').hidden=true;io.value=JSON.stringify(D,function(k,v){return k==='_f'?undefined:v;},1);io.select();try{navigator.clipboard.writeText(io.value);byId('eMsg').textContent='JSONをコピーしました';}catch(err){byId('eMsg').textContent='テキストを選択してコピーしてください';}}
     else if(a==='imp'){efShow();io.hidden=false;io.value='';byId('eAp').hidden=false;byId('eMsg').textContent='JSONを貼り付けて「反映」を押してください';}
-    else if(a==='apply'){try{var j=JSON.parse(io.value);Object.keys(j).forEach(function(k){if(SC[k])D[k]=j[k];});norm();render();save();ui();byId('eMsg').textContent='反映しました';}catch(err){byId('eMsg').textContent='JSONの形式が正しくありません';}}
+    else if(a==='file'){var fi=document.createElement('input');fi.type='file';fi.accept='.json,application/json';fi.onchange=function(){var f=fi.files&&fi.files[0];if(!f)return;var rd=new FileReader();rd.onload=function(){io.value=String(rd.result||'');applyJSON(io.value);};rd.readAsText(f);};fi.click();}
+    else if(a==='html'){exportHTML();}
+    else if(a==='apply'){applyJSON(io.value);}
     else if(a==='rst'){twice(b,'初期化',function(){try{localStorage.removeItem(KEY);}catch(err){}location.reload();});}
   });
+  function applyJSON(t){try{var j=JSON.parse(t);Object.keys(j).forEach(function(k){if(SC[k])D[k]=j[k];});norm();render();save();ui();byId('eMsg').textContent='反映しました。「HTML書き出し」で公開用ファイルを作れます';}catch(err){byId('eMsg').textContent='JSONの形式が正しくありません';}}
+  // ===== HTML書き出し：今の内容を焼き込んだ index.html を作る =====
+  function jsonEnd(t,i){var d=0,q=false,e=false;for(;i<t.length;i++){var c=t[i];if(q){if(e)e=false;else if(c==='\\')e=true;else if(c==='"')q=false;continue;}if(c==='"')q=true;else if(c==='{'||c==='[')d++;else if(c==='}'||c===']'){d--;if(!d)return i+1;}}return -1;}
+  function cleanNode(n){
+    var c=n.cloneNode(true);
+    [].forEach.call(c.querySelectorAll('#pix'),function(x){x.parentNode.removeChild(x);});
+    [c].concat([].slice.call(c.querySelectorAll('*'))).forEach(function(x){
+      if(x.classList){x.classList.remove('lst','jh');if(!x.classList.length&&x.hasAttribute('class'))x.removeAttribute('class');}
+      if(x.tagName==='DETAILS')x.removeAttribute('open');
+      if(x.hasAttribute&&x.hasAttribute('data-sig'))x.removeAttribute('data-sig');
+      if(x.tagName==='IFRAME'){var u=x.getAttribute('data-src')||x.getAttribute('src');if(u){x.setAttribute('data-src',u);x.removeAttribute('src');}}
+    });
+    return c;
+  }
+  function exportHTML(){
+    var msg=byId('eMsg');msg.textContent='作成中…';
+    var url=location.href.split('#')[0],got=function(t){return t&&t.indexOf("PUB_V='")>=0&&t.indexOf('<html')>=0?t:null;};
+    var p=(location.protocol==='http:'||location.protocol==='https:')&&window.fetch?fetch(url,{cache:'no-store'}).then(function(r){return r.ok?r.text():null;}).catch(function(){return null;}):Promise.resolve(null);
+    p.then(function(src){
+      var live=false;src=got(src);
+      if(!src){live=true;src='<!DOCTYPE html>\n'+document.documentElement.outerHTML;}
+      var doc=new DOMParser().parseFromString(src,'text/html');
+      if(live){['ed','ed-ov','edv'].forEach(function(i){var x=doc.getElementById(i);if(x)x.parentNode.removeChild(x);});
+        [].forEach.call(doc.querySelectorAll('.ed,.star.fz,.tt-ov'),function(x){x.parentNode.removeChild(x);});
+        ['class','style','data-theme','data-motion'].forEach(function(a){doc.documentElement.removeAttribute(a);doc.body.removeAttribute(a);});}
+      // データ(PUB)とトップ見出しの初期値
+      var ver=new Date().toISOString().replace(/\.\d+Z$/,'Z');
+      var J=JSON.parse(JSON.stringify(D,function(k,v){return k==='_f'?undefined:v;}));J._v=ver;
+      var txt=JSON.stringify(J).replace(/<\//g,'<\\/').replace(/<!--/g,'<\\!--');
+      var sc=[].slice.call(doc.querySelectorAll('script')).filter(function(x){return x.textContent.indexOf("PUB_V='")>=0;})[0];
+      if(!sc){msg.textContent='書き出しに失敗しました(データ部分が見つかりません)';return;}
+      var t=sc.textContent,m=/PUB_V='[^']*',PUB=/.exec(t),st=m.index+m[0].length,en=jsonEnd(t,st);
+      if(en<0){msg.textContent='書き出しに失敗しました(データ形式)';return;}
+      t=t.slice(0,m.index)+"PUB_V='"+ver+"',PUB="+txt+t.slice(en);
+      var tb=D.tblocks||[],hb=tb.filter(function(b){return b.k==='head';})[0],sb=tb.filter(function(b){return b.k==='sub';})[0];
+      var hh=String(hb?hb.t||'':D.site.hero||'').replace(/^\n+|\n+$/g,''),ll=String(sb?sb.t||'':D.site.lead||'').replace(/^\n+|\n+$/g,'');
+      var js=function(x){return "'"+x.replace(/\\/g,'\\\\').replace(/'/g,"\\'").replace(/\n/g,'\\n')+"'";};
+      t=t.replace(/hero:'(?:[^'\\]|\\.)*',lead:'(?:[^'\\]|\\.)*'/,function(){return 'hero:'+js(hh)+',lead:'+js(ll);});
+      sc.textContent=t;
+      // 画面の中身を焼き込む(JSなしでも読める)
+      var ids=['tpS','tpW','tpR','badges','filters','wkList','ntList','spList','plList','rsList','rsStats','moodList','lkList','abTags','abBio','abSkl','abTl','abCl','abCt'];
+      ids.forEach(function(i){var a=doc.getElementById(i),b=document.getElementById(i);if(a&&b)a.innerHTML=cleanNode(b).innerHTML;});
+      ['.lk','.me'].forEach(function(q){var a=doc.querySelector(q),b=document.querySelector(q);if(a&&b)a.innerHTML=cleanNode(b).innerHTML;});
+      var pt=doc.getElementById('p-top'),lt=document.getElementById('p-top');
+      if(pt&&lt){var px=doc.createElement('div');px.className='pix';px.id='pix';px.setAttribute('aria-hidden','true');var kids=[px];[].forEach.call(lt.children,function(c){
+        if(c.id==='pix')return;
+        if(/^tpe-/.test(c.id))kids.push(doc.importNode(cleanNode(c),true));
+        else{var o=doc.getElementById(c.id);if(o)kids.push(o);}});
+        while(pt.firstChild)pt.removeChild(pt.firstChild);kids.forEach(function(k){pt.appendChild(doc.createTextNode('\n    '));pt.appendChild(k);});pt.appendChild(doc.createTextNode('\n  '));}
+      doc.title=document.title;
+      var out='<!DOCTYPE html>\n'+doc.documentElement.outerHTML+'\n';
+      var blob=new Blob([out],{type:'text/html'}),done=function(){msg.textContent='index.html を書き出しました('+Math.round(out.length/1024)+'KB)';};
+      var plain=function(){var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='index.html';document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.parentNode.removeChild(a);},2000);done();};
+      var cl=window.claude&&window.claude.use?window.claude.use('downloads'):Promise.resolve(null);
+      return Promise.resolve(cl).catch(function(){return null;}).then(function(dl){
+        if(!dl||!dl.save){plain();return;}
+        return dl.save({filename:'index.html',data:blob}).then(done,function(e){msg.textContent=(e&&e.code==='declined')?'保存をキャンセルしました':'保存できませんでした('+(e&&e.code||'error')+')';});});
+    }).catch(function(e){msg.textContent='書き出しに失敗しました: '+(e&&e.message||e);});
+  }
   function onEdit(e){
     var t=e.target,k=t.dataset&&t.dataset.k;if(!k)return;
     if(t.dataset.s&&/[\r\n]/.test(t.value))t.value=t.value.replace(/[\r\n]+/g,' ');
@@ -1757,8 +1935,8 @@ Liminal Spacesシリーズでは配布アセットを使用せず、モデルは
       var b=byId('badges'),t=b&&b.parentNode;if(!b||!t)return;
       var r=t.getBoundingClientRect();
       var want=r.bottom<6&&!!b.children.length;
-      if(want&&!on){t.style.minHeight=t.offsetHeight+'px';b.classList.add('stk');on=true;}
-      else if(!want&&on){b.classList.remove('stk');t.style.minHeight='';b.style.right='';b.style.maxWidth='';on=false;}
+      if(want&&!on){t.style.minHeight=t.offsetHeight+'px';b.classList.add('stk');var hd=t.closest('header');if(hd)hd.style.zIndex='46';on=true;}
+      else if(!want&&on){b.classList.remove('stk');var hd2=t.closest('header');if(hd2)hd2.style.zIndex='';t.style.minHeight='';b.style.right='';b.style.maxWidth='';on=false;}
       if(on){var rt=Math.max(0,document.documentElement.clientWidth-r.right);b.style.right=rt+'px';b.style.maxWidth=r.width+'px';var d=b.getBoundingClientRect().right-r.right;if(Math.abs(d)>.5)b.style.right=(rt+d)+'px';}
     }
     var q=0;function sch(){if(!q)q=requestAnimationFrame(function(){q=0;try{upd();}catch(e){}});}
@@ -1776,18 +1954,21 @@ Liminal Spacesシリーズでは配布アセットを使用せず、モデルは
 })();
 </script>
 <script>
-/* Miracle: 液体風グラデーション（WebGL。使えない環境では従来の背景のまま） */
+/* Miracle(スマホ・タブレット用): 軽い版。引きずった跡を保持するシンプルな描画 */
 (function(){
+  var MOB=(window.matchMedia&&matchMedia('(pointer: coarse)').matches)||/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent||'')||(navigator.maxTouchPoints>1&&/Mac/.test(navigator.platform||''));
+  if(!MOB)return;
   var cv=document.getElementById('fl'),root=document.documentElement,gl,pg,uR,uT,raf=0,t0=performance.now(),dpr=1;
   if(!cv)return;
   try{gl=cv.getContext('webgl',{antialias:false,alpha:false,powerPreference:'low-power'});}catch(e){}
   if(!gl)return;
   var VS='attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
-  var FS='precision highp float;uniform vec2 R;uniform float T;uniform vec3 A;uniform vec3 B;uniform vec3 C;uniform vec3 E;'+
+  var FS='precision highp float;uniform vec2 R;uniform float T;uniform vec3 A;uniform vec3 B;uniform vec3 C;uniform vec3 E;uniform sampler2D F;'+
   'float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}'+
   'float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1.,0.)),f.x),mix(h(i+vec2(0.,1.)),h(i+vec2(1.)),f.x),f.y);}'+
   'float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<5;i++){v+=a*n(p);p=p*2.03+vec2(3.1,1.7);a*=.5;}return v;}'+
   'void main(){vec2 uv=gl_FragCoord.xy/R.y*3.0;float t=T*.07;'+
+  'vec2 up=gl_FragCoord.xy/R.y;vec2 fd=(texture2D(F,gl_FragCoord.xy/R).xy-.5)*.44;uv=(up-fd)*3.0;'+
   'vec2 q=vec2(fbm(uv+vec2(0.,t)),fbm(uv+vec2(5.2,1.3)-t));'+
   'vec2 r=vec2(fbm(uv+3.2*q+vec2(1.7,9.2)+t*1.3),fbm(uv+3.2*q+vec2(8.3,2.8)-t*1.1));'+
   'float f=fbm(uv+3.2*r);'+
@@ -1803,7 +1984,12 @@ Liminal Spacesシリーズでは配布アセットを使用せず、モデルは
   gl.useProgram(pg);
   var b=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
   var loc=gl.getAttribLocation(pg,'p');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
-  uR=gl.getUniformLocation(pg,'R');uT=gl.getUniformLocation(pg,'T');var uC=['A','B','C','E'].map(function(n){return gl.getUniformLocation(pg,n);});
+  var GW=64,GH=36,fX=new Float32Array(GW*GH),fY=new Float32Array(GW*GH),fb=new Uint8Array(GW*GH*4),fAct=true,fTex=gl.createTexture();
+  gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,fTex);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
+  gl.uniform1i(gl.getUniformLocation(pg,'F'),0);
+  for(var q=0;q<GW*GH;q++){fb[q*4]=fb[q*4+1]=128;fb[q*4+2]=0;fb[q*4+3]=255;}
+  gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,GW,GH,0,gl.RGBA,gl.UNSIGNED_BYTE,fb);uR=gl.getUniformLocation(pg,'R');uT=gl.getUniformLocation(pg,'T');var uC=['A','B','C','E'].map(function(n){return gl.getUniformLocation(pg,n);});
   function hsl(h,s,l){h=((h%360)+360)%360/360;function f(n){var k=(n+h*12)%12,a=s*Math.min(l,1-l);return l-a*Math.max(-1,Math.min(k-3,Math.min(9-k,1)));}return [f(0),f(8),f(4)];}
   function pal(){var h0=Math.random()*360,o=[0,40+Math.random()*80,130+Math.random()*100,240+Math.random()*80];o.forEach(function(d,i){var c=hsl(h0+d,.7+Math.random()*.3,.8+Math.random()*.08);gl.uniform3f(uC[i],c[0],c[1],c[2]);});}
   function size(){
@@ -1811,8 +1997,27 @@ Liminal Spacesシリーズでは配布アセットを使用せず、モデルは
     var w=Math.max(1,Math.round(innerWidth*dpr)),h=Math.max(1,Math.round(innerHeight*dpr));
     if(cv.width!==w||cv.height!==h){cv.width=w;cv.height=h;gl.viewport(0,0,w,h);}
   }
+  var px=-1e4,py=-1e4,sx=-1e4,sy=-1e4,H=[],acc=0,sv=0,TX=[-1e4,-1e4,-1e4,-1e4,-1e4,-1e4],TY=TX.slice(),TS=[0,0,0,0,0,0],TF=[.22,.13,.085,.06,.042,.03],TA=[.12,.08,.055,.04,.03,.022],tbuf=new Float32Array(18),vbuf=new Float32Array(12);
+  addEventListener('pointermove',function(e){if(px>-1e3)acc+=Math.hypot(e.clientX-px,e.clientY-py);else{for(var k=0;k<6;k++){TX[k]=e.clientX;TY[k]=e.clientY;}}px=e.clientX;py=e.clientY;},{passive:true});
+  document.addEventListener('pointerleave',function(){px=py=-1e4;});
   function draw(){
     size();gl.uniform2f(uR,cv.width,cv.height);
+    var on=moving(),now=performance.now();
+    if(px>-1e3){if(sx<-1e3){sx=px;sy=py;}sx+=(px-sx)*.16;sy+=(py-sy)*.16;H.push({t:now,x:sx,y:sy});}
+    while(H.length>2&&H[1].t<now-400)H.shift();
+    function at(t){var j=H.length-1;if(j<0)return null;if(t<=H[0].t)return H[0];while(j>0&&H[j].t>t)j--;var A=H[j],B=H[j+1]||A,f=B.t>A.t?(t-A.t)/(B.t-A.t):0;return {x:A.x+(B.x-A.x)*f,y:A.y+(B.y-A.y)*f};}
+    // 引きずった跡を保持する場(ゆっくり戻る)
+    var dec=on?.9965:.9,W=innerWidth,Hh=innerHeight,mx2=0;
+    var cur=on&&H.length>1?H[H.length-1]:null,old=cur?at(now-70):null;
+    var sp=cur&&old?Math.hypot(cur.x-old.x,cur.y-old.y):0,gain=Math.max(0,Math.min(1,(sp-14)/34));
+    var vx=cur&&old?(cur.x-old.x)/Hh:0,vy=cur&&old?-(cur.y-old.y)/Hh:0,R2=110*110;
+    for(var j=0;j<GH;j++){var cy=(j+.5)/GH*Hh,dy=cy-(cur?Hh-cur.y:0);for(var i=0;i<GW;i++){
+      var q=j*GW+i,a=fX[q]*dec,b=fY[q]*dec;
+      if(gain>0){var cx=(i+.5)/GW*W,dx=cx-cur.x,w=Math.exp(-(dx*dx+dy*dy)/R2)*gain*.35;if(w>.002){a+=vx*w;b+=vy*w;}}
+      a=a>.22?.22:a<-.22?-.22:a;b=b>.22?.22:b<-.22?-.22:b;
+      fX[q]=a;fY[q]=b;var m=a<0?-a:a,n=b<0?-b:b;if(m>mx2)mx2=m;if(n>mx2)mx2=n;
+      fb[q*4]=Math.round((a/.22*.5+.5)*255);fb[q*4+1]=Math.round((b/.22*.5+.5)*255);}}
+    if(mx2>.0006||fAct){gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,GW,GH,0,gl.RGBA,gl.UNSIGNED_BYTE,fb);fAct=mx2>.0006;}
     gl.uniform1f(uT,(performance.now()-t0)/1000);
     gl.drawArrays(gl.TRIANGLES,0,3);
   }
@@ -1834,6 +2039,156 @@ Liminal Spacesシリーズでは配布アセットを使用せず、モデルは
   addEventListener('resize',function(){if(root.classList.contains('fl-on')&&!raf)draw();});
   document.addEventListener('visibilitychange',function(){if(root.classList.contains('fl-on')&&!document.hidden&&!raf)loop();});
   sync();
+})();
+</script>
+<script>
+/* Miracle: 水の中のインクのような背景（WebGL。使えない環境では従来の背景のまま）
+   速度と圧力を解く流体シミュレーション。カーソルで水をかき混ぜると、色が渦を巻いて混ざり、ゆっくり元の模様へ戻る */
+(function(){
+  var MOB=(window.matchMedia&&matchMedia('(pointer: coarse)').matches)||/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent||'')||(navigator.maxTouchPoints>1&&/Mac/.test(navigator.platform||''));
+  if(MOB)return;
+  var cv=document.getElementById('fl'),root=document.documentElement,gl,raf=0,t0=performance.now(),dpr=1;
+  if(!cv)return;
+  try{gl=cv.getContext('webgl',{antialias:false,alpha:false,powerPreference:'low-power'});}catch(e){}
+  if(!gl)return;
+  var VS='attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
+  var HEAD='precision highp float;uniform vec2 R;';
+  var H1='float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}';
+  function sh(t,src){var o=gl.createShader(t);gl.shaderSource(o,src);gl.compileShader(o);return gl.getShaderParameter(o,gl.COMPILE_STATUS)?o:null;}
+  function mkp(fs,names){var v=sh(gl.VERTEX_SHADER,VS),f=sh(gl.FRAGMENT_SHADER,HEAD+fs);if(!v||!f)return null;var p=gl.createProgram();gl.attachShader(p,v);gl.attachShader(p,f);gl.bindAttribLocation(p,0,'p');gl.linkProgram(p);if(!gl.getProgramParameter(p,gl.LINK_STATUS))return null;var u={};names.concat(['R']).forEach(function(n){u[n]=gl.getUniformLocation(p,n);});return {p:p,u:u};}
+  // 模様(インクの元の色)
+  var BASE=H1+'uniform float T;uniform vec3 A;uniform vec3 B;uniform vec3 C;uniform vec3 E;'+
+  'float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1.,0.)),f.x),mix(h(i+vec2(0.,1.)),h(i+vec2(1.)),f.x),f.y);}'+
+  'float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<5;i++){v+=a*n(p);p=p*2.03+vec2(3.1,1.7);a*=.5;}return v;}'+
+  'vec3 base(vec2 fc,float sc,float mk){float t=T*.07*(1.+mk*.48);float wp=3.2+mk*2.04;vec2 uv=fc/R.y*3.0*sc+mk*vec2(7.3,2.9);'+
+  'vec2 q=vec2(fbm(uv+vec2(0.,t)),fbm(uv+vec2(5.2,1.3)-t));'+
+  'vec2 r=vec2(fbm(uv+wp*q+vec2(1.7,9.2)+t*1.3),fbm(uv+wp*q+vec2(8.3,2.8)-t*1.1));'+
+  'float f=fbm(uv+wp*r);'+
+  'vec3 c=mix(A,B,smoothstep(.15,.7,f));c=mix(c,C,smoothstep(.35,.95,r.x));c=mix(c,E,smoothstep(.3,.85,q.y)*.75);c=mix(c,A,smoothstep(.55,1.,r.y)*.5);'+
+  'float s=pow(smoothstep(.52,.78,f),2.5);c+=vec3(1.)*s*.18;return mix(c,vec3(1.),.04);}';
+  var DYE=mkp(BASE+'uniform sampler2D P;uniform sampler2D U;uniform vec2 SR;uniform float dt;uniform float K;'+
+    'void main(){vec2 uv=gl_FragCoord.xy/R;vec2 co=uv-dt*texture2D(U,uv).xy/SR;float o=max(max(-co.x,co.x-1.),max(-co.y,co.y-1.));vec3 pv=mix(texture2D(P,co).rgb,base(co*R,5.2,1.5),smoothstep(0.,.012,o));gl_FragColor=vec4(mix(pv,base(gl_FragCoord.xy,2.,0.),K),1.);}',['T','A','B','C','E','P','U','SR','dt','K']);
+  var DIRECT=mkp(BASE+'void main(){vec3 c=base(gl_FragCoord.xy,2.,0.);c+=(h(gl_FragCoord.xy+T)-.5)/255.;gl_FragColor=vec4(c,1.);}',['T','A','B','C','E']);
+  var DISP=mkp(H1+'uniform sampler2D P;uniform float T;void main(){vec3 c=texture2D(P,gl_FragCoord.xy/R).rgb;c+=(h(gl_FragCoord.xy+T)-.5)/255.;gl_FragColor=vec4(c,1.);}',['P','T']);
+  var ADV=mkp('uniform sampler2D U;uniform sampler2D S;uniform float dt;uniform float dis;void main(){vec2 uv=gl_FragCoord.xy/R;vec2 co=uv-dt*texture2D(U,uv).xy/R;gl_FragColor=texture2D(S,co)*dis;}',['U','S','dt','dis']);
+  var SPL=mkp('uniform sampler2D U;uniform vec2 pt;uniform vec2 p1;uniform vec2 fc;uniform float rad;void main(){vec2 uv=gl_FragCoord.xy/R;vec2 as=vec2(R.x/R.y,1.);vec2 a=(uv-pt)*as,sg=(p1-pt)*as;float t=clamp(dot(a,sg)/max(dot(sg,sg),1e-9),0.,1.);vec2 d=a-sg*t;float g=exp(-dot(d,d)/rad);gl_FragColor=vec4(texture2D(U,uv).xy+fc*g,0.,1.);}',['U','pt','p1','fc','rad']);
+  var AMB=mkp('uniform sampler2D U;uniform float T;uniform float dt;uniform float amp;uniform vec2 sf;void main(){vec2 uv=gl_FragCoord.xy/R;float as=R.x/R.y;vec2 p=vec2(uv.x*as,uv.y)*7.;'+
+    'vec2 f=vec2(cos(p.y*1.3+T*.21)+.6*cos(p.y*2.7-p.x*.8+T*.33),sin(p.x*1.1-T*.17)+.6*sin(p.x*2.3+p.y*.9+T*.27));'+
+    'float ex=min(uv.x,1.-uv.x)*as,ey=min(uv.y,1.-uv.y);'+
+    'float sx_=clamp(1.8*sin(T*.42+(uv.x<.5?0.:2.1)+uv.y*2.5),-1.,1.),sy_=clamp(1.8*sin(T*.37+(uv.y<.5?.8:3.)+uv.x*2.2),-1.,1.);'+
+    'f+=vec2((uv.x<.5?1.:-1.)*smoothstep(.28,0.,ex)*sx_*(1.+.28*sin(T*.5+uv.y*16.)),(uv.y<.5?1.:-1.)*smoothstep(.28,0.,ey)*sy_*(1.+.28*sin(T*.45+uv.x*14.+1.)))*1.5;'+
+    'f.y+=((.55+.45*smoothstep(.28,0.,uv.y))*max(sf.x,0.)-(.55+.45*smoothstep(.28,0.,1.-uv.y))*max(-sf.x,0.))*mix(.7,1.,smoothstep(-.15,.25,sin(uv.x*as*20.+T*.25)))*1.9;'+
+    'float sa=abs(sf.x),wz=.55+.45*smoothstep(.28,0.,min(uv.y,1.-uv.y));'+
+    'f.x+=sa*wz*(sin(uv.x*as*20.+T*.25+1.57+uv.y*7.)+.6*sin(uv.x*as*11.-T*.4+uv.y*13.))*.9;'+
+    'f.y+=sa*wz*.5*sin(uv.x*as*13.+uv.y*9.+T*.6);'+
+    'gl_FragColor=vec4(texture2D(U,uv).xy+f*amp*dt*.85,0.,1.);}',['U','T','dt','amp','sf']);
+  var DIV=mkp('uniform sampler2D U;void main(){vec2 uv=gl_FragCoord.xy/R,t=1./R;float L=texture2D(U,uv-vec2(t.x,0.)).x,Rr=texture2D(U,uv+vec2(t.x,0.)).x,B=texture2D(U,uv-vec2(0.,t.y)).y,Tt=texture2D(U,uv+vec2(0.,t.y)).y;gl_FragColor=vec4(.5*(Rr-L+Tt-B),0.,0.,1.);}',['U']);
+  var JAC=mkp('uniform sampler2D Q;uniform sampler2D D;void main(){vec2 uv=gl_FragCoord.xy/R,t=1./R;float L=texture2D(Q,uv-vec2(t.x,0.)).x,Rr=texture2D(Q,uv+vec2(t.x,0.)).x,B=texture2D(Q,uv-vec2(0.,t.y)).x,Tt=texture2D(Q,uv+vec2(0.,t.y)).x;gl_FragColor=vec4((L+Rr+B+Tt-texture2D(D,uv).x)*.25,0.,0.,1.);}',['Q','D']);
+  var GRD=mkp('uniform sampler2D Q;uniform sampler2D U;void main(){vec2 uv=gl_FragCoord.xy/R,t=1./R;float L=texture2D(Q,uv-vec2(t.x,0.)).x,Rr=texture2D(Q,uv+vec2(t.x,0.)).x,B=texture2D(Q,uv-vec2(0.,t.y)).x,Tt=texture2D(Q,uv+vec2(0.,t.y)).x;gl_FragColor=vec4(texture2D(U,uv).xy-.5*vec2(Rr-L,Tt-B),0.,1.);}',['Q','U']);
+  if(!DYE||!DIRECT||!DISP||!ADV||!SPL||!DIV||!JAC||!GRD||!AMB)return;
+  var buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
+  gl.enableVertexAttribArray(0);gl.vertexAttribPointer(0,2,gl.FLOAT,false,0,0);
+  // 浮動小数テクスチャが使えるか
+  var hf=gl.getExtension('OES_texture_half_float'),hfl=gl.getExtension('OES_texture_half_float_linear'),hcb=gl.getExtension('EXT_color_buffer_half_float'),
+      ff=gl.getExtension('OES_texture_float'),ffl=gl.getExtension('OES_texture_float_linear'),fcb=gl.getExtension('WEBGL_color_buffer_float');
+  var TYPE=(hf&&hfl&&hcb)?hf.HALF_FLOAT_OES:(ff&&ffl&&fcb)?gl.FLOAT:0;
+  function mkT(w,h){var t=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,t);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,w,h,0,gl.RGBA,TYPE,null);var f=gl.createFramebuffer();gl.bindFramebuffer(gl.FRAMEBUFFER,f);gl.framebufferTexture2D(gl.FRAMEBUFFER,gl.COLOR_ATTACHMENT0,gl.TEXTURE_2D,t,0);var ok=gl.checkFramebufferStatus(gl.FRAMEBUFFER)===gl.FRAMEBUFFER_COMPLETE;gl.bindFramebuffer(gl.FRAMEBUFFER,null);return ok?{t:t,f:f,w:w,h:h}:null;}
+  function mkD(w,h){var a=mkT(w,h),b=a&&mkT(w,h);return a&&b?{a:a,b:b,sw:function(){var x=this.a;this.a=this.b;this.b=x;}}:null;}
+  function del(d){if(!d)return;[d.a,d.b].forEach(function(x){gl.deleteTexture(x.t);gl.deleteFramebuffer(x.f);});}
+  var VEL=null,PRS=null,DVG=null,DY=null,sw=0,sh_=0,mode=TYPE?1:0,fresh=true,warmLeft=128,scY=window.scrollY||0,scI=0,scA=0,scL=0,lastW=0,lastH=0;
+  function alloc(){
+    if(!mode)return;
+    var w=Math.max(8,cv.width),h=Math.max(8,cv.height);
+    if(DY&&w===lastW&&h===lastH)return;
+    del(VEL);del(PRS);del(DVG);del(DY);
+    var sH=h,sW=w;
+    VEL=mkD(sW,sH);PRS=mkD(sW,sH);DVG=mkT(sW,sH);DY=mkD(w,h);
+    if(!VEL||!PRS||!DVG||!DY){mode=0;return;}
+    sw=sW;sh_=sH;lastW=w;lastH=h;fresh=true;
+  }
+  var palv=[[1,.8,.9],[.8,.9,1],[.85,1,.9],[.95,.9,1]];
+  function hsl(h,s,l){h=((h%360)+360)%360/360;function f(n){var k=(n+h*12)%12,a=s*Math.min(l,1-l);return l-a*Math.max(-1,Math.min(k-3,Math.min(9-k,1)));}return [f(0),f(8),f(4)];}
+  function pal(){warmLeft=128;var h0=Math.random()*360,o=[0,40+Math.random()*80,130+Math.random()*100,240+Math.random()*80];palv=o.map(function(d){return hsl(h0+d,.7+Math.random()*.3,.8+Math.random()*.08);});fresh=true;}
+  function setPal(P){['A','B','C','E'].forEach(function(n,i){gl.uniform3f(P.u[n],palv[i][0],palv[i][1],palv[i][2]);});}
+  function size(){
+    dpr=Math.min(window.devicePixelRatio||1,2);
+    var w=Math.max(1,Math.round(innerWidth*dpr)),h=Math.max(1,Math.round(innerHeight*dpr));
+    if(cv.width!==w||cv.height!==h){cv.width=w;cv.height=h;}
+  }
+  var px=-1e4,py=-1e4,sx=-1e4,sy=-1e4,lastN=0,IT=12,ftAvg=16.7,fcnt=0,cool=0;
+  addEventListener('pointermove',function(e){px=e.clientX;py=e.clientY;},{passive:true});
+  document.addEventListener('pointerleave',function(){px=py=-1e4;});
+  addEventListener('scroll',function(){var y=window.scrollY||0;scI+=y-scY;scY=y;},{passive:true});
+  function tex(u,t,i){gl.activeTexture(gl.TEXTURE0+i);gl.bindTexture(gl.TEXTURE_2D,t);gl.uniform1i(u,i);}
+  function pass(P,target,w,h){gl.useProgram(P.p);gl.bindFramebuffer(gl.FRAMEBUFFER,target?target.f:null);gl.viewport(0,0,w,h);gl.uniform2f(P.u.R,w,h);}
+  function go(){gl.drawArrays(gl.TRIANGLES,0,3);}
+  function vstep(dt,T,iters,sfy){
+    // 画面の外や中から、常に液体が流れ込んで対流する(スクロールすると少し圧がかかる)
+    pass(AMB,VEL.b,sw,sh_);tex(AMB.u.U,VEL.a.t,0);gl.uniform1f(AMB.u.T,T);gl.uniform1f(AMB.u.dt,dt);gl.uniform1f(AMB.u.amp,.12*sh_);gl.uniform2f(AMB.u.sf,sfy||0,0);go();VEL.sw();
+    // 速度を流す(粘性で少しずつ弱まる)
+    pass(ADV,VEL.b,sw,sh_);tex(ADV.u.U,VEL.a.t,0);tex(ADV.u.S,VEL.a.t,1);gl.uniform1f(ADV.u.dt,dt);gl.uniform1f(ADV.u.dis,1/(1+dt*2.6));go();VEL.sw();
+    // 圧力を解いて、非圧縮(渦を巻く流れ)にする
+    pass(DIV,DVG,sw,sh_);tex(DIV.u.U,VEL.a.t,0);go();
+    for(var i=0;i<iters;i++){pass(JAC,PRS.b,sw,sh_);tex(JAC.u.Q,PRS.a.t,0);tex(JAC.u.D,DVG.t,1);go();PRS.sw();}
+    pass(GRD,VEL.b,sw,sh_);tex(GRD.u.Q,PRS.a.t,0);tex(GRD.u.U,VEL.a.t,1);go();VEL.sw();
+  }
+  function dstep(dt,T,K){
+    // インク(色)を流す。ゆっくり元の模様へ戻る
+    pass(DYE,DY.b,DY.a.w,DY.a.h);setPal(DYE);gl.uniform1f(DYE.u.T,T);gl.uniform2f(DYE.u.SR,sw,sh_);gl.uniform1f(DYE.u.dt,dt);
+    gl.uniform1f(DYE.u.K,K);tex(DYE.u.P,DY.a.t,0);tex(DYE.u.U,VEL.a.t,1);go();DY.sw();
+  }
+  function draw(){
+    size();alloc();
+    var on=moving(),now=performance.now(),T=(now-t0)/1000;
+    if(lastN){var raw=now-lastN;if(raw<1500){ftAvg+=(raw-ftAvg)*.12;fcnt++;if(cool>0)cool--;
+      if(fcnt>=24){fcnt=0;if(ftAvg>19.5&&IT>3){IT=Math.max(3,IT-(ftAvg>35?3:1));cool=150;}else if(ftAvg<17.4&&IT<20&&cool<=0)IT++;}}}
+    var dt=Math.min(.05,Math.max(.004,lastN?(now-lastN)/1000:.016));lastN=now;
+    if(!mode){
+      pass(DIRECT,null,cv.width,cv.height);setPal(DIRECT);gl.uniform1f(DIRECT.u.T,T);go();return;
+    }
+    if(on){
+      // 手の動き → 水への力
+      var hasP=px>-1e3;
+      if(hasP){
+        if(sx<-1e3){sx=px;sy=py;}
+        var ox=sx,oy=sy;sx+=(px-sx)*.5;sy+=(py-sy)*.5;
+        var ddx=sx-ox,ddy=sy-oy,sp=Math.hypot(ddx,ddy);
+        if(sp>.01){
+          var fx=ddx/innerWidth*sw/dt*.55,fy=-ddy/innerHeight*sh_/dt*.55,fm=Math.hypot(fx,fy),cap=2.2*sh_;
+          if(fm>cap){fx*=cap/fm;fy*=cap/fm;}
+          pass(SPL,VEL.b,sw,sh_);tex(SPL.u.U,VEL.a.t,0);gl.uniform2f(SPL.u.pt,ox/innerWidth,1-oy/innerHeight);gl.uniform2f(SPL.u.p1,sx/innerWidth,1-sy/innerHeight);gl.uniform2f(SPL.u.fc,fx,fy);var rr=9/innerHeight;gl.uniform1f(SPL.u.rad,rr*rr);go();VEL.sw();
+        }
+      }
+      scA+=(scI/dt-scA)*(1-Math.exp(-dt/.05));scI=0; // 今のスクロール速度にすぐ反応
+      var dcy=scL*Math.exp(-dt/.1);scL=Math.abs(scA)>Math.abs(dcy)?scA:dcy; // 止めたあとは余韻が残る
+      vstep(dt,T,IT,Math.max(-7,Math.min(7,scL/innerHeight*11)));
+    }
+    if(fresh){dstep(0,T,1);fresh=false;}
+    if(warmLeft>0&&on){ // ある程度混ざった状態から見せる(数フレームに分けて計算し、その間は隠す)
+      var wn=Math.min(warmLeft,8);
+      for(var wk=0;wk<wn;wk++){var tw=T+(128-warmLeft+wk)*.05;vstep(.05,tw,6,0);dstep(.05,tw,0);}
+      warmLeft-=wn;cv.style.opacity=warmLeft>0?'0':'';
+    }else{if(warmLeft>0){warmLeft=0;cv.style.opacity='';}dstep(on?dt:0,T,on?1-Math.exp(-dt/3.2):1);}
+    pass(DISP,null,cv.width,cv.height);tex(DISP.u.P,DY.a.t,0);gl.uniform1f(DISP.u.T,T);go();
+  }
+  function moving(){
+    var m=root.getAttribute('data-motion')||'auto';
+    if(m==='off')return false;
+    if(m==='on')return true;
+    return !(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+  }
+  function loop(){raf=0;draw();if(moving()&&!document.hidden)raf=requestAnimationFrame(loop);}
+  function sync(){
+    var on=root.getAttribute('data-theme')==='miracle';
+    if(on&&!root.classList.contains('fl-on'))pal();
+    root.classList.toggle('fl-on',on);
+    if(raf){cancelAnimationFrame(raf);raf=0;}
+    if(on)loop();
+  }
+  new MutationObserver(sync).observe(root,{attributes:true,attributeFilter:['data-theme','data-motion']});
+  addEventListener('resize',function(){if(root.classList.contains('fl-on')&&!raf)draw();});
+  document.addEventListener('visibilitychange',function(){if(root.classList.contains('fl-on')&&!document.hidden&&!raf)loop();});
+    sync();
 })();
 </script>
 </body>
