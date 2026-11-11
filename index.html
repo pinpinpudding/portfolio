@@ -2144,7 +2144,7 @@ Liminal Spacesシリーズでは配布アセットを使用せず、モデルは
   }
   var palv=[[1,.8,.9],[.8,.9,1],[.85,1,.9],[.95,.9,1]];
   function hsl(h,s,l){h=((h%360)+360)%360/360;function f(n){var k=(n+h*12)%12,a=s*Math.min(l,1-l);return l-a*Math.max(-1,Math.min(k-3,Math.min(9-k,1)));}return [f(0),f(8),f(4)];}
-  function pal(){warmLeft=128;var h0=Math.random()*360,o=[0,40+Math.random()*80,130+Math.random()*100,240+Math.random()*80];palv=o.map(function(d){return hsl(h0+d,.7+Math.random()*.3,.8+Math.random()*.08);});fresh=true;}
+  function pal(){warmLeft=128;var h0=Math.random()*360,o=[0,40+Math.random()*80,130+Math.random()*100,240+Math.random()*80];palv=o.map(function(d){var hu=(((h0+d)%360)+360)%360;hu=170+hu/360*225;if(hu>=360)hu-=360;var bl=(hu>200&&hu<290)?.03:0;return hsl(hu+Math.random()*6-3,.7+Math.random()*.3,Math.min(.96,.8+bl+Math.random()*.16));});palv[3]=hsl(180+Math.random()*28,.6+Math.random()*.3,.83+Math.random()*.12);fresh=true;}
   function setPal(P){['A','B','C','E'].forEach(function(n,i){gl.uniform3f(P.u[n],palv[i][0],palv[i][1],palv[i][2]);});}
   function size(){
     dpr=Math.min(window.devicePixelRatio||1,2);
