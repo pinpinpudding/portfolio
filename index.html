@@ -231,6 +231,7 @@ footer{padding-bottom:110px}
 .nav{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;padding:4px 0 6px}
 .pg{padding-bottom:30px}
 .tb.kid{margin-left:-4px}.tb.kid>button{font-size:11.5px;opacity:.92}.tb.grp>button{font-weight:800}
+.kidrow .abh{flex:1 1 auto;min-width:0}
 .kidsel{display:flex;flex-direction:column;gap:5px;margin:8px 0}.kidsel>b{font-size:12px}.kp{display:flex;align-items:center;gap:8px;margin:0;font-weight:500}.kp input{width:16px;height:16px;margin:0}.kidrow .tt{font-weight:600}
 .subtabs[hidden]{display:none}
 .pgv{min-height:150vh}
@@ -1152,7 +1153,9 @@ Liminal Spacesシリーズでは配布アセットを使用せず、モデルは
   var DEF_RS=[];
   var DEF_PF={on:'0',rank:'',big:'',tag:'',t:'',d:'',m:''};
   var DEF_LQ={on:'0',q:'',b:'',h1:'',h2:''};
-  var DEF_AB={av:'',avimg:'',h4:'',h1:'',h2:'',h3:''};
+  var DEF_AB={av:'',avimg:'',h4:'',h1:'',h2:'',h3:'',ord:''};
+  var ABK=['bio','sk','hs','ct'],ABID={bio:'abBio',sk:'abSk',hs:'abHs',ct:'abCt'};
+  function aordGet(){var o=String(D.about&&D.about.ord||'').split(',').map(function(x){return x.trim();}).filter(function(x,i,a){return ABK.indexOf(x)>=0&&a.indexOf(x)===i;});ABK.forEach(function(k){if(o.indexOf(k)<0)o.push(k);});return o;}
   var DEF_SK=[];
   var DEF_HS=[];
   D.skills=copy(DEF_SK);D.slides=[];D.contact=[];D.tblocks=[];D.hist=copy(DEF_HS);
@@ -1407,6 +1410,7 @@ Liminal Spacesシリーズでは配布アセットを使用せず、モデルは
     byId('abH2').textContent=A.h2||'';byId('abH2').hidden=!String(A.h2||'').trim();
     byId('abH3').textContent=A.h3||'';byId('abH3').hidden=!String(A.h3||'').trim();
     R.skills();R.hist();R.contact();
+    var col=qs('#p-about .col');if(col)aordGet().forEach(function(k){var n=byId(ABID[k]);if(n)col.appendChild(n);});
   };
   R.contact=function(){
     var A=D.about,L=(D.contact||[]).filter(function(c){return String(c.l||'').trim()||String(c.v||'').trim()||String(c.u||'').trim();});
@@ -1713,7 +1717,10 @@ Liminal Spacesシリーズでは配布アセットを使用せず、モデルは
     pfeat:{n:'Play上部',one:1,f:[['on','表示','s:1|表示,0|非表示'],['rank','小さな文字'],['big','大きな文字'],['tag','タグ'],['t','タイトル'],['d','説明','a'],['m','チップ（カンマ区切り）'],['u','URL（サイト内ジャンプは [[notes/タイトル]] の形式）']]},
     lq:{n:'Likes上部',one:1,f:[['on','ひとことカード','s:1|表示,0|非表示'],['q','ひとこと'],['b','説明文','a'],['h1','「ムードボード」の見出し'],['h2','「好きなもの」の見出し']]},
     mood:{n:'Mood',f:[['l','ことば'],['a','色1','s:pink|ピンク,lilac|ラベンダー,sky|スカイ,mint|ミント'],['b','色2','s:pink|ピンク,lilac|ラベンダー,sky|スカイ,mint|ミント']]},
-    about:{n:'About',one:1,f:[['name','名前'],['id','ID'],['av','アイコンの文字'],['avimg','アイコン画像のURL'],['lead','ひとこと','a'],['h1','プロフィール欄の見出し'],['bio','プロフィール','a'],['h2','スキル欄の見出し'],['h3','年表欄の見出し'],['h4','連絡先の見出し']]},
+    about:{n:'About',one:1,f:[]},
+    abo:{n:'並び順と見出し',one:1,f:[]},
+    abn:{n:'名前とアイコン',one:1,f:[['name','名前'],['id','ID'],['av','アイコンの文字'],['avimg','アイコン画像のURL'],['lead','ひとこと','a']]},
+    abp:{n:'プロフィール',one:1,f:[['bio','プロフィール','a']]},
     skills:{n:'About スキル',f:[['l','項目名'],['v','レベル（0〜100）','n']]},
     contact:{n:'About 連絡先',f:[['l','項目名（例: Mail / DM）'],['v','内容（メールアドレスなら自動でリンクになります）'],['u','リンク先（任意・https:// ・mailto: ・サイト内ジャンプは [[notes/タイトル]] の形式）']]},
     hist:{n:'About 年表',f:[['y','年'],['t','できごと']]},
@@ -1739,16 +1746,16 @@ Liminal Spacesシリーズでは配布アセットを使用せず、モデルは
     mood:{l:'ことば',a:'pink',b:'sky'},
     likes:{id:'*l',g:'新しいカテゴリ',i:'',img:''}
   };
-  var TI={tblocks:function(it){if(it.k==='embed'){var x=String(it.t||'').trim()||String(it.b||'').replace(/<[^>]*>/g,'').trim().slice(0,20);return '埋め込み'+(x?'：'+x:'');}if(it.k==='head'||it.k==='sub'){var y=String(it.t||'').replace(/\s+/g,' ').trim().slice(0,20);return (it.k==='head'?'見出し':'サブタイトル')+(y?'：'+y:'');}if(it.k==='orb')return 'オーブ'+(String(it.img||'').trim()?'（画像）':'');return {slides:'スライド',works:'Works（作品の抜粋）',results:'Results（実績の抜粋）'}[it.k]||it.k;},contact:function(it){return it.l||it.v||'';},slides:function(it){return it.t||it.img||'';},ph:function(){return '見出しとサブタイトル';},skills:function(it){return it.l;},hist:function(it){return (it.y||'')+' '+(it.t||'');},rstats:function(it){return (it.n||'')+' '+(it.l||'');},pfeat:function(){return '注目カード';},lq:function(){return 'ひとこと・見出し';},site:function(){return 'サイト全体の設定';},top:function(){return 'Topの見出し・ボタン';},pages:function(it){var g=null;D.pages.forEach(function(x){if(x.kind==='g'&&(x.kids||[]).indexOf(it.id)>=0)g=x;});return it.label+(it.kind==='g'?'（グループ・'+(it.kids||[]).length+'ページ内包）':'')+(g?'（'+g.label+' 内）':'')+(it.on==='0'?'（非表示）':'');},tags:function(it){return it.label;},works:function(it){return it.t;},play:function(it){return it.n;},results:function(it){return (it.y?it.y+' ':'')+(it.t||'');},notes:function(it){return it.t;},setup:function(it){return it.g;},likes:function(it){return it.g;},mood:function(it){return it.l;},about:function(){return 'プロフィール';},links:function(it){return it.t;}};
+  var TI={tblocks:function(it){if(it.k==='embed'){var x=String(it.t||'').trim()||String(it.b||'').replace(/<[^>]*>/g,'').trim().slice(0,20);return '埋め込み'+(x?'：'+x:'');}if(it.k==='head'||it.k==='sub'){var y=String(it.t||'').replace(/\s+/g,' ').trim().slice(0,20);return (it.k==='head'?'見出し':'サブタイトル')+(y?'：'+y:'');}if(it.k==='orb')return 'オーブ'+(String(it.img||'').trim()?'（画像）':'');return {slides:'スライド',works:'Works（作品の抜粋）',results:'Results（実績の抜粋）'}[it.k]||it.k;},contact:function(it){return it.l||it.v||'';},slides:function(it){return it.t||it.img||'';},ph:function(){return '見出しとサブタイトル';},skills:function(it){return it.l;},hist:function(it){return (it.y||'')+' '+(it.t||'');},rstats:function(it){return (it.n||'')+' '+(it.l||'');},pfeat:function(){return '注目カード';},lq:function(){return 'ひとこと・見出し';},site:function(){return 'サイト全体の設定';},top:function(){return 'Topの見出し・ボタン';},pages:function(it){var g=null;D.pages.forEach(function(x){if(x.kind==='g'&&(x.kids||[]).indexOf(it.id)>=0)g=x;});return it.label+(it.kind==='g'?'（グループ・'+(it.kids||[]).length+'ページ内包）':'')+(g?'（'+g.label+' 内）':'')+(it.on==='0'?'（非表示）':'');},tags:function(it){return it.label;},works:function(it){return it.t;},play:function(it){return it.n;},results:function(it){return (it.y?it.y+' ':'')+(it.t||'');},notes:function(it){return it.t;},setup:function(it){return it.g;},likes:function(it){return it.g;},mood:function(it){return it.l;},about:function(){return 'プロフィール';},abn:function(){return String(D.about.name||'').trim()||'名前とアイコン';},abp:function(){return String(D.about.h1||'').trim()||'プロフィール';},abo:function(){return '並び順と見出し';},links:function(it){return it.t;}};
   function xp(k){return /^x:/.test(k)?pgById(k.slice(2)):null;}
   function scOf(k){if(/^ph:/.test(k))return k==='ph:top'?{n:'ページ見出し',one:1,f:[['hero','見出し','a'],['lead','サブタイトル','a']]}:{n:'ページ見出し',one:1,f:[['h','見出し'],['s','サブタイトル']]};var p=xp(k);return p?{n:p.label,f:SC[p.type||'text'].f}:SC[k];}
-  function one(k){return /^ph:/.test(k)?(k==='ph:top'?D.site:pgById(k.slice(3))):D[k];}
+  function one(k){if(k==='abn'||k==='abp'||k==='abo')return D.about;return /^ph:/.test(k)?(k==='ph:top'?D.site:pgById(k.slice(3))):D[k];}
   function dOf(k){var p=xp(k);if(p){if(!Array.isArray(p.items))p.items=[];return p.items;}return D[k];}
   function tyOf(k){if(/^ph:/.test(k))return 'ph';var p=xp(k);return p?p.type:k;}
   function tiOf(k){return TI[tyOf(k)];}
   function addOf(k){return ADD[tyOf(k)];}
   function pgOf(k){if(/^g:/.test(k)){var g=pgById(k.slice(2)),ks=gkids(g);return ks[0]?ks[0].id:null;}var p=xp(k);return p?p.id:TABPG[k];}
-  function rk(k){if(k==='ph:top')return 'site';return /^(x|ph|g):/.test(k)?'pages':k;}
+  function rk(k){if(k==='ph:top')return 'site';if(k==='abn'||k==='abp'||k==='abo')return 'about';return /^(x|ph|g):/.test(k)?'pages':k;}
   function tabOf(p){return p.kind==='g'?'g:'+p.id:p.kind==='b'?p.id:(p.kind==='c'&&(p.type||'text')!=='text'&&p.type!=='view'?'x:'+p.id:null);}
   function kidGrp(k){var p=/^g:/.test(k)?null:pgOfTab(k);if(!p)return null;var r=null;D.pages.forEach(function(g){if(g.kind==='g'&&(g.kids||[]).indexOf(p.id)>=0)r=g;});return r;}
   function tabKeys(){
@@ -1761,8 +1768,9 @@ Liminal Spacesシリーズでは配布アセットを使用せず、モデルは
     return ks;
   }
   var SECM={top:['slides','tblocks'],play:['pfeat','play'],results:['rstats','results'],likes:['lq','mood','likes'],about:['about','skills','hist','contact']};
-  var SECN={top:'Topの抜粋',tblocks:'並び順と埋め込み',slides:'スライド',pfeat:'注目カード',play:'ゲームの一覧',rstats:'上部の数字カード',results:'実績の一覧',lq:'ひとこと・見出し',mood:'ムードボード',likes:'好きなものの一覧',about:'プロフィール',skills:'スキル欄',hist:'年表（これまで）',contact:'連絡先'};
-  function secKeys(t){if(/^g:/.test(t))return [t];var a=xp(t)?[t]:(SECM[t]||[t]),pg=xp(t)||(t==='top'||t==='site'||t==='pages'||t==='tags'?null:pgById(t));if(t==='top')return a;return pg?['ph:'+pg.id].concat(a):a;}
+  function secName(k,fb){var A=D.about||{},t={abp:A.h1,skills:A.h2,hist:A.h3,contact:A.h4}[k];return String(t||'').trim()||SECN[k]||fb||k;}
+  var SECN={top:'Topの抜粋',tblocks:'並び順と埋め込み',slides:'スライド',pfeat:'注目カード',play:'ゲームの一覧',rstats:'上部の数字カード',results:'実績の一覧',lq:'ひとこと・見出し',mood:'ムードボード',likes:'好きなものの一覧',about:'プロフィール',abn:'名前とアイコン',abo:'並び順と見出し',abp:'プロフィール',skills:'スキル欄',hist:'年表',contact:'連絡先'};
+  function secKeys(t){if(/^g:/.test(t))return [t];var a=xp(t)?[t]:(t==='about'?['abo','abn'].concat(aordGet().map(function(x){return {bio:'abp',sk:'skills',hs:'hist',ct:'contact'}[x];})):(SECM[t]||[t])),pg=xp(t)||(t==='top'||t==='site'||t==='pages'||t==='tags'?null:pgById(t));if(t==='top')return a;return pg?['ph:'+pg.id].concat(a):a;}
   function itTitle(it,i,k){k=k||cur;var t=(tiOf(k)?tiOf(k)(it):'')||'（無題）';var dk=DK[tyOf(k)];if(dk&&it&&it[dk]&&String(t).indexOf(String(it[dk]))!==0)t=it[dk]+'  '+t;return scOf(k).one?t:(i+1)+'. '+t;}
   var TABPG={tblocks:'top',contact:'about',slides:'top',skills:'about',hist:'about',rstats:'results',pfeat:'play',lq:'likes',site:'top',pages:'top',tags:'top',top:'top',works:'works',play:'play',results:'results',notes:'notes',setup:'setup',likes:'likes',mood:'likes',about:'about',links:'links'};
 
@@ -1784,6 +1792,7 @@ Liminal Spacesシリーズでは配布アセットを使用せず、モデルは
     if(t==='@tags'){inner=sel(a,[['','なし']].concat(D.tags.map(function(x){return [x.id,x.tag||x.label];})),v);}
     else if(t.slice(0,2)==='s:'){inner=sel(a,t.slice(2).split(',').map(function(o){var p=o.split('|');return [p[0],p[1]||p[0]||'なし'];}),v);}
     else if(t==='ro'){inner="<select disabled><option>"+(it.kind==='g'?'グループ（他のページを内包）':esc(BT[it.id]||'')+'（固定）')+"</option></select>";}
+    else if(t==='aord'){var HK={bio:'h1',sk:'h2',hs:'h3',ct:'h4'},DF={bio:'プロフィール',sk:'スキル',hs:'年表',ct:'連絡先'},od=aordGet();return od.map(function(k,x){var hv=D.about[HK[k]],ti=(x+1)+'. '+(String(hv||'').trim()||DF[k]);var fo=!!(D.about._fa&&D.about._fa[k]&&D.about._fa[k]._f);return "<div class='ei"+(fo?' fold':'')+"' data-ab='"+k+"'><div class='ea'><button class='fold' data-a='fold' data-i='0' aria-expanded='"+(!fo)+"' aria-label='開閉'>"+(fo?'▸':'▾')+"</button><span class='tt'>"+esc(ti)+"</span><button data-a='ab-up' data-k='"+k+"' aria-label='上へ'"+(x?'':' disabled')+">↑</button><button data-a='ab-dn' data-k='"+k+"' aria-label='下へ'"+(x<od.length-1?'':' disabled')+">↓</button><button data-a='ab-jump' data-k='"+k+"' title='他の項目のURL欄や本文に貼ると、この項目へジャンプするリンクになります'>ジャンプ用</button></div><div class='fl'>"+fld([HK[k],'見出し'],D.about,0)+"</div></div>";}).join('');}
     else if(t==='kids'){return "<div class='kidsel'><b>"+f[1]+"</b>"+D.pages.filter(function(q){return q.kind!=='g'&&q.id!=='top';}).map(function(q){var og=null;D.pages.forEach(function(g){if(g!==it&&g.kind==='g'&&(g.kids||[]).indexOf(q.id)>=0)og=g;});var on=(it.kids||[]).indexOf(q.id)>=0;return "<label class='kp'><input type='checkbox' data-kid='"+esc(q.id)+"' data-i='"+i+"'"+(on?' checked':'')+(og?' disabled':'')+"><span>"+esc(q.label||q.id)+(og?'（'+esc(og.label)+'内）':'')+"</span></label>";}).join('')+"</div>";}
     else if(t==='a'){inner="<textarea rows='3' "+a+">"+esc(v)+"</textarea><i class='grip' title='ドラッグで高さを変更'></i>";}
     else{inner="<textarea rows='1' data-s='1' "+(t==='n'?"data-n='1' inputmode='numeric' ":'')+a+">"+esc(v)+"</textarea><i class='grip' title='ドラッグで高さを変更'></i>";}
@@ -1831,11 +1840,12 @@ Liminal Spacesシリーズでは配布アセットを使用せず、モデルは
       }
       var fo=!!it._f;
       return "<div class='ei"+(fo?' fold':'')+"'><div class='ea'><button class='fold' data-a='fold' data-i='"+i+"' aria-expanded='"+(!fo)+"' aria-label='開閉'>"+(fo?'▸':'▾')+"</button><span class='tt'>"+esc(itTitle(it,i,k))+"</span>"+ctl+"</div><div class='fl'>"+
-        s.f.filter(function(f){return !f[3]||f[3](it);}).map(function(f){return fld(f,it,i);}).join('')+"</div></div>";
+        s.f.filter(function(f){return f[2]!=='aord'&&(!f[3]||f[3](it));}).map(function(f){return fld(f,it,i);}).join('')+"</div></div>";
     }).join('');
     var bulk=(!s.one&&L.length>1)?"<div class='bulk'><button data-a='foldall'>すべてたたむ</button><button data-a='unfoldall'>すべて開く</button></div>":'';
     var add=lock?'':(k==='tblocks'?"<div class='pre'><b>＋ 追加</b>"+[['orb','オーブ'],['head','見出し'],['sub','サブタイトル'],['embed','埋め込み']].map(function(t){return "<button data-a='addb' data-t='"+t[0]+"'>"+t[1]+"</button>";}).join('')+"</div>":k==='pages'?"<div class='pre'><b>＋ ページを追加</b>"+Object.keys(PT).map(function(t){return "<button data-a='addp' data-t='"+t+"'>"+esc(PT[t])+"</button>";}).join('')+"<button data-a='addg'>グループ</button></div>":"<button class='add' data-a='add'>＋ 追加</button>");
-    return "<section class='sc' data-sc='"+esc(k)+"'>"+(head?"<h3 class='sech'>"+esc(SECN[k]||s.n)+"</h3>":'')+bulk+items+add+"</section>";
+    if(k==='abo')return "<section class='sc' data-sc='abo'>"+(head?"<h3 class='sech'>並び順と見出し</h3>":'')+fld(['ord','','aord'],D.about,0)+"</section>";
+    return "<section class='sc' data-sc='"+esc(k)+"'>"+(head?"<h3 class='sech'>"+esc(secName(k,s.n))+"</h3>":'')+bulk+items+add+"</section>";
   }
   function ui(){
     if(tabKeys().indexOf(cur)<0)cur='pages';
@@ -1885,6 +1895,8 @@ Liminal Spacesシリーズでは配布アセットを使用せず、モデルは
     var b=e.target.closest('button');if(!b)return;
     if(b.dataset.c){cur=b.dataset.c;ui();var pg=pgOf(cur);if(pg&&pageOk(pg))showPage(pg,false);return;}
     var a=b.dataset.a,i=+b.dataset.i,sc=secOf(b),L=dOf(sc),io=byId('eIO'),w=secEl(sc);
+    if(a==='ab-jump'){var jt1='[['+ptok('about')+'/'+{bio:'profile',sk:'skills',hs:'history',ct:'contact'}[b.dataset.k]+']]';try{navigator.clipboard.writeText(jt1).then(function(){b.textContent='コピー済';setTimeout(function(){b.textContent='ジャンプ用';},1800);},function(){});}catch(x){}byId('eMsg').textContent='ジャンプ用: '+jt1;return;}
+    if(a==='ab-up'||a==='ab-dn'){var ao=aordGet(),ax=ao.indexOf(b.dataset.k),ay=a==='ab-up'?ax-1:ax+1;if(ax>=0&&ay>=0&&ay<ao.length){ao.splice(ay,0,ao.splice(ax,1)[0]);D.about.ord=ao.join(',');render('about');save();ui();}return;}
     if(a&&a.slice(0,3)==='gk-'){
       var gg=pgById(b.dataset.g);
       if(a==='gk-jump'){var jt0='[['+ptok(b.dataset.p)+']]';try{navigator.clipboard.writeText(jt0).then(function(){b.textContent='コピー済';setTimeout(function(){b.textContent='ジャンプ用';},1800);},function(){});}catch(x){}byId('eMsg').textContent='ジャンプ用: '+jt0;return;}
@@ -1929,7 +1941,7 @@ Liminal Spacesシリーズでは配布アセットを使用せず、モデルは
       D.pages.push(np);chg(1,'pages');var its2=secEl('pages').querySelectorAll('.ei'),tg2=its2[its2.length-1];if(tg2&&tg2.scrollIntoView)tg2.scrollIntoView({block:'nearest'});
     }
     else if(a==='fold'){
-      var it0=scOf(sc).one?one(sc):L[i],ei=b.closest('.ei'),fo=!it0._f;
+      var rwa=b.closest('[data-ab]'),it0=rwa?((D.about._fa=D.about._fa||{})[rwa.dataset.ab]=(D.about._fa[rwa.dataset.ab]||{})):(scOf(sc).one?one(sc):L[i]),ei=b.closest('.ei'),fo=!it0._f;
       if(fo)it0._f=1;else delete it0._f;
       save();
       b.textContent=fo?'▸':'▾';b.setAttribute('aria-expanded',String(!fo));
@@ -1956,7 +1968,7 @@ Liminal Spacesシリーズでは配布アセットを使用せず、モデルは
       edIn.querySelector('.ef').classList.toggle('min',UI.min);
       b.textContent=UI.min?'▲ ひらく':'▼ とじる';
     }
-    else if(a==='exp'){efShow();io.hidden=false;byId('eAp').hidden=true;io.value=JSON.stringify(D,function(k,v){return k==='_f'?undefined:v;},1);io.select();try{navigator.clipboard.writeText(io.value);byId('eMsg').textContent='JSONをコピーしました';}catch(err){byId('eMsg').textContent='テキストを選択してコピーしてください';}}
+    else if(a==='exp'){efShow();io.hidden=false;byId('eAp').hidden=true;io.value=JSON.stringify(D,function(k,v){return (k==='_f'||k==='_fa')?undefined:v;},1);io.select();try{navigator.clipboard.writeText(io.value);byId('eMsg').textContent='JSONをコピーしました';}catch(err){byId('eMsg').textContent='テキストを選択してコピーしてください';}}
     else if(a==='imp'){efShow();io.hidden=false;io.value='';byId('eAp').hidden=false;byId('eMsg').textContent='JSONを貼り付けて「反映」を押してください';}
     else if(a==='file'){var fi=document.createElement('input');fi.type='file';fi.accept='.json,application/json';fi.onchange=function(){var f=fi.files&&fi.files[0];if(!f)return;var rd=new FileReader();rd.onload=function(){io.value=String(rd.result||'');applyJSON(io.value);};rd.readAsText(f);};fi.click();}
     else if(a==='html'){exportHTML();}
@@ -1990,7 +2002,7 @@ Liminal Spacesシリーズでは配布アセットを使用せず、モデルは
         ['class','style','data-theme','data-motion'].forEach(function(a){doc.documentElement.removeAttribute(a);doc.body.removeAttribute(a);});}
       // データ(PUB)とトップ見出しの初期値
       var ver=new Date().toISOString().replace(/\.\d+Z$/,'Z');
-      var J=JSON.parse(JSON.stringify(D,function(k,v){return k==='_f'?undefined:v;}));J._v=ver;
+      var J=JSON.parse(JSON.stringify(D,function(k,v){return (k==='_f'||k==='_fa')?undefined:v;}));J._v=ver;
       var txt=JSON.stringify(J).replace(/<\//g,'<\\/').replace(/<!--/g,'<\\!--');
       var sc=[].slice.call(doc.querySelectorAll('script')).filter(function(x){return x.textContent.indexOf("PUB_V='")>=0;})[0];
       if(!sc){msg.textContent='書き出しに失敗しました(データ部分が見つかりません)';return;}
@@ -2030,7 +2042,9 @@ Liminal Spacesシリーズでは配布アセットを使用せず、モデルは
     var prevT=o.type;
     o[k]=t.dataset.n?(t.value.trim()===''?'':(+t.value||0)):t.value;
     if(e.type==='change'&&sc!=='pages'&&DK[tyOf(sc)]===k){sortL(dOf(sc),tyOf(sc));render(rk(sc));save();ui();return;}
-    var ee=t.closest('.ei'),tt=ee&&ee.querySelector('.tt');if(tt)tt.textContent=itTitle(o,+t.dataset.i,sc);
+    if(sc==='abo'){var rw=t.closest('.ei'),rt=rw&&rw.querySelector('.tt');if(rt){var ix=[].indexOf.call(secEl('abo').querySelectorAll('.ei'),rw),DF2={h1:'プロフィール',h2:'スキル',h3:'年表',h4:'連絡先'};rt.textContent=(ix+1)+'. '+(String(o[k]||'').trim()||DF2[k]);}}
+    if(sc==='abo'||sc==='abp'){var MK={h1:'abp',h2:'skills',h3:'hist',h4:'contact'}[k];if(MK){var se0=secEl(MK),hh0=se0&&se0.querySelector('.sech');if(hh0)hh0.textContent=secName(MK);}}
+    var ee=t.closest('.ei'),tt=ee&&ee.querySelector('.tt');if(tt&&sc!=='abo')tt.textContent=itTitle(o,+t.dataset.i,sc);
     if(sc==='pages'){[].forEach.call(edIn.querySelectorAll('.et [data-c]'),function(bt){bt.textContent=tbTxt(bt.dataset.c);var tb=bt.closest('.tb'),cb=tb&&tb.querySelector('[data-pub]');if(cb){var on=pageIsOn(bt.dataset.c);cb.checked=on;tb.classList.toggle('off',!on);}});}
     if(sc==='pages'&&k==='type'){
       o.st=o.st||{};o.st[prevT||'text']=o.items||[];
